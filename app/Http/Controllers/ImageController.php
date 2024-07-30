@@ -40,7 +40,7 @@ class ImageController extends Controller
         $filesystem_cache = Storage::disk(config('images.cache'));
         if ($filesystem->exists($path . '/' . $image)) {
             // Check if it's a supported image type first
-            if (in_array($filesystem->mimeType($path . '/' . $image), config('image.mime_types'))) {
+            if (in_array($filesystem->mimeType($path . '/' . $image), config('images.mime_types'))) {
                 // It's supported by the processor
                 $server = $this->create_server($filesystem->path($path), $filesystem_cache->path($disk . '/' . $path));
                 header('Glide:Supported');
