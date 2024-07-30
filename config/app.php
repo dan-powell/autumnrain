@@ -56,7 +56,7 @@ return [
 
     'domain' => env('APP_DOMAIN', 'autumnrain.uk'),
 
-    'domain2' => env('APP_DOMAIN_2', 'dan-powell.uk'),
+    'domain_pro' => env('APP_DOMAIN_PRO', 'dan-powell.uk'),
 
     /*
     |--------------------------------------------------------------------------

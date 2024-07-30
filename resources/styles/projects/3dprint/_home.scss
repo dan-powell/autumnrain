@@ -160,7 +160,7 @@ $space: 40px;
     }
     @media screen and (max-width: $screen-sm) {
         max-width: none;
-        padding: $space/2 0;
+        padding: calc($space/2) 0;
         &-col {
             flex: 1 1 100%;
         }
@@ -195,7 +195,7 @@ $space: 40px;
         }
         &-item {
             flex: 1 1 100%;
-            padding: $space/2;
+            padding: calc($space/2);
         }
     }
 }

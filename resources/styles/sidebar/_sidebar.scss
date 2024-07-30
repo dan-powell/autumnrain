@@ -321,9 +321,12 @@ $color-background: #1a1a1a;
             transition: color .2s ease-in-out;
         }
         &-text {
+            writing-mode: vertical-rl;
+            font-size: 1em;
+            text-orientation: mixed;
             display: block;
             &--dan {
-                font-size: 16px;
+                font-size: 3em;
             }
             &--powell {
                 font-weight: 300;
@@ -492,7 +495,7 @@ body {
             flex-direction: row;
             justify-content: flex-end;
             width: 100vw;
-            height: $sidebar-height-sm / 2;
+            height: calc($sidebar-height-sm / 2);
 
             border-right: 0;
             border-bottom: 1px solid $color-positive;
@@ -500,7 +503,7 @@ body {
         }
         &-overlay {
             width: 100vw;
-            padding: $sidebar-height-sm/2 0 0 0;
+            padding: calc($sidebar-height-sm/2) 0 0 0;
             &-inner {
 
             }

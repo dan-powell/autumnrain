@@ -39,4 +39,8 @@ mix.js(['resources/scripts/main/base.js', 'resources/scripts/main/_home.js', 're
 mix.browserSync({
     proxy: process.env.APP_PROXY,
     open: false,
+    socket: {
+        domain: 'http://bs.autumnrain.lndo.site',
+        port: 80
+    }
 });

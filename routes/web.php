@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,7 +18,7 @@ Route::domain(config('app.domain'))->group(function () {
 
     Route::get('/', [
         'as' => 'home',
-        'uses' => 'Main\HomeController@show'
+        'uses' => 'Main\HomeController@default'
     ]);
 
     Route::get('sitemap.xml', [
@@ -53,11 +55,11 @@ Route::domain(config('app.domain'))->group(function () {
 });
 
 
-Route::domain(config('app.domain2'))->group(function () {
+Route::domain(config('app.domain_pro'))->group(function () {
 
     Route::get('/', [
-        'as' => 'home2',
-        'uses' => 'Main\HomeController@alt'
+        'as' => 'home-pro',
+        'uses' => 'Main\HomeController@professional'
     ]);
 
 });

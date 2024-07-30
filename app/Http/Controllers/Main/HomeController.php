@@ -12,14 +12,14 @@ class HomeController extends Controller {
         $this->projectRepo = $projectRepository;
     }
 
-	public function show()
+	public function default()
 	{
-        return view('main.home.home')->with('project', $this->projectRepo->all()->first());
+        return view('main.home.default')->with('projects', $this->projectRepo->all());
     }
 
-    public function alt()
+    public function professional()
 	{
-        return view('main.home.alt');
+        return view('main.home.professional');
     }
 
 }

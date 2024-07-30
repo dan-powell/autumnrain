@@ -10,6 +10,5 @@
 @section('main')
     @include('main.home._intro')
     @include('main.home._hero')
-    @include('main.home._project')
     @include('main.home._calltoaction')
 @endsection

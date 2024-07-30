@@ -1,13 +1,5 @@
 <aside class="Sidebar">
     <div class="Sidebar-stripe">
-        <a href="{{ config('app.url') }}" class="Sidebar-home">
-            <h1 class="Sidebar-home-title">
-                <span class="Sidebar-home-text Sidebar-home-text--dan">Autumn</span>
-                {{-- <span class="Sidebar-home-text Sidebar-home-text--powell">umn</span> --}}
-                {{-- <span class="Sidebar-home-text Sidebar-home-text--web">Web</span> --}}
-                <span class="Sidebar-home-text Sidebar-home-text--design">Rain</span>
-            </h1>
-        </a>
         <button class="Sidebar-button Sidebar-button--menu js-sidebar">
             <div class="Sidebar-button-icon">
                 <div class="Sidebar-button-icon-inner">
@@ -22,6 +14,13 @@
             </span>
         </button>
         @yield('buttons')
+        <a href="{{ config('app.url') }}" class="Sidebar-home">
+            <h1 class="Sidebar-home-title">
+                <span class="Sidebar-home-text Sidebar-home-text--1">Autumn</span>
+                <span class="Sidebar-home-text Sidebar-home-text--2">Rain</span>
+                <span class="Sidebar-home-text Sidebar-home-text--3">Studios</span>
+            </h1>
+        </a>
     </div>
     <div class="Sidebar-overlay">
         <div class="Sidebar-overlay-inner">

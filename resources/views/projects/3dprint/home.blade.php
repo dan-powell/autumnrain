@@ -16,7 +16,7 @@
 	<section class="HomeTitle js-anime-observer">
         <div class="HomeTitle-bottom">
             <h1 class="HomeTitle-title">
-                <span class="HomeTitle-small js-anime-small">Dan's adventures in</span>
+                <span class="HomeTitle-small js-anime-small">Adventures in</span>
                 <span class="HomeTitle-line js-anime-line"></span>
                 <span class="HomeTitle-large js-anime-title">3D Printing</span>
                 <span class="HomeTitle-line js-anime-line"></span>
