@@ -25,6 +25,15 @@ return [
             'h' => 400,
             'fit' => 'crop'
         ]
-    ]
+    ],
+
+    // Supported image types
+    'mime_types' => [
+        'image/jpeg',
+        'image/jpg',
+        'image/png',
+        'image/webp',
+        'image/gif',
+    ],
 
 ];

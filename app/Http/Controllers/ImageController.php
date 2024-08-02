@@ -8,10 +8,6 @@ use App\Http\Requests\ImageGetRequest;
 class ImageController extends Controller
 {
 
-    public function __construct(private readonly Storage $storage)
-    {
-    }
-
     // Returns an image from the main image storage disk
     public function show(ImageGetRequest $request, $image)
     {
@@ -25,7 +21,8 @@ class ImageController extends Controller
     }
 
     // Returns the image server factory used to process images
-    private function create_server($source, $cache) {
+    private function create_server($source, $cache)
+    {
         return ServerFactory::create([
             'response' => new LaravelResponseFactory(app('request')),
             'source' => $source,
@@ -36,17 +33,36 @@ class ImageController extends Controller
     }
 
     // Returns an image from a particular disk & path
-    private function image_response($disk, $path, $image) {
+    private function image_response($disk, $path, $image)
+    {
 
-        $filesystem = $this->storage::disk($disk);
-        $filesystem_cache = $this->storage::disk(config('images.cache'));
+        $filesystem = Storage::disk($disk);
+        $filesystem_cache = Storage::disk(config('images.cache'));
+        if ($filesystem->exists($path . '/' . $image)) {
+            // Check if it's a supported image type first
+            if (in_array($filesystem->mimeType($path . '/' . $image), config('images.mime_types'))) {
+                // It's supported by the processor
+                $server = $this->create_server($filesystem->path($path), $filesystem_cache->path($disk . '/' . $path));
+                header('Glide:Supported');
+                if($server->cacheFileExists($image, request()->all())) {
+                    header('GlideCache:Hit');
+                } else {
+                    header('GlideCache:Miss');
+                }
+                return $server->getImageResponse($image, request()->all());
+            }
+            // It's not supported - so just return the file
+            header('Glide:Unsupported');
+            if ($filesystem->mimeType($path . '/' . $image) == 'image/svg') {
+                // Set the correct content type for SVG's
+                $headers = ['Content-Type' => 'image/svg+xml'];
+            } else {
+                $headers = [];
+            }
 
-        if($filesystem->exists($path . '/' . $image)) {
-            $server = $this->create_server($filesystem->path($path), $filesystem_cache->path($disk . '/' . $path));
-            return $server->getImageResponse($image, request()->all());
-        } else {
-            abort('404');
+            return response()->file($filesystem->path($path . '/' . $image), $headers);
         }
+        abort('404');
 
     }
 }
