@@ -1,11 +1,11 @@
 <?php
 
-namespace Database\Factories\Ai52;
+namespace Database\Factories\AiWorks;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Ai52\Theme>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\AiWorks\Theme>
  */
 class ThemeFactory extends Factory
 {

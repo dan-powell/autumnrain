@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Ai52;
+namespace App\Models\AiWorks;
 
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -15,7 +15,7 @@ class Theme extends Model
     /**
      * The table associated with the model.
      */
-    protected $table = 'ai52_theme';
+    protected $table = 'aiworks_theme';
 
     /**
      * Mass assignable attributes.

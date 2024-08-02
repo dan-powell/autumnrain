@@ -22,12 +22,12 @@ return [
             //     ]
             // ],
         // ],
-        [
-            'prefix' => 'Personal',
-            'label' => 'Projects',
-            'icon' => 'img/sidebar/icons.svg#projects',
-            'url' => ['projects.index'],
-        ],
+        // [
+        //     'prefix' => 'Personal',
+        //     'label' => 'Projects',
+        //     'icon' => 'img/sidebar/icons.svg#projects',
+        //     'url' => ['projects.index'],
+        // ],
         // [
         //     'label' => 'Experience',
         //     'icon' => 'img/sidebar/icons.svg#education',

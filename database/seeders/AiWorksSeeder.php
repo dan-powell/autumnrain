@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Ai52\Piece;
-use App\Models\Ai52\Theme;
+use App\Models\AiWorks\Piece;
+use App\Models\AiWorks\Theme;
 use Illuminate\Database\Seeder;
 
-class Ai52Seeder extends Seeder
+class AiWorksSeeder extends Seeder
 {
     /**
      * Run the database seeds.

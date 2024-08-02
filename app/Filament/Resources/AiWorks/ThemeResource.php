@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Filament\Resources\Ai52;
+namespace App\Filament\Resources\AiWorks;
 
-use App\Filament\Clusters\Ai52;
-use App\Filament\Resources\Ai52\ThemeResource\Pages;
-use App\Filament\Resources\Ai52\ThemeResource\RelationManagers;
-use App\Models\Ai52\Theme;
+use App\Filament\Clusters\AiWorks;
+use App\Filament\Resources\AiWorks\ThemeResource\Pages;
+use App\Filament\Resources\AiWorks\ThemeResource\RelationManagers;
+use App\Models\AiWorks\Theme;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -17,7 +17,7 @@ use OpenSpout\Reader\XLSX\Manager\WorkbookRelationshipsManager;
 
 class ThemeResource extends Resource
 {
-    protected static ?string $cluster = Ai52::class;
+    protected static ?string $cluster = AiWorks::class;
 
     protected static ?string $model = Theme::class;
 

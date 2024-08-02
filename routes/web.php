@@ -31,16 +31,6 @@ Route::domain(config('app.domain'))->group(function () {
         'uses' => 'SitemapController@xml'
     ]);
 
-    // Route::get('portfolio', [
-    //     'as' => 'portfolio.index',
-    //     'uses' => 'Main\PortfolioController@index'
-    // ]);
-    //
-    // Route::get('portfolio/{slug}', [
-    //     'as' => 'portfolio.show',
-    //     'uses' => 'Main\PortfolioController@show'
-    // ]);
-
     Route::get('projects', [
         'as' => 'projects.index',
         'uses' => 'Main\ProjectController@index'
@@ -62,12 +52,22 @@ Route::domain(config('app.domain_pro'))->group(function () {
         'uses' => 'Main\HomeController@professional'
     ]);
 
+    // Route::get('portfolio', [
+    //     'as' => 'portfolio.index',
+    //     'uses' => 'Main\PortfolioController@index'
+    // ]);
+    //
+    // Route::get('portfolio/{slug}', [
+    //     'as' => 'portfolio.show',
+    //     'uses' => 'Main\PortfolioController@show'
+    // ]);
+
 });
 
 // AI52 Project controller
-Route::domain('ai52.' . config('app.domain'))->name('ai52.')->group(function () {
-    Route::get('/', ['as' => 'home', 'uses' => 'Ai52\Ai52Controller@index']);
-    Route::get('/{id}', ['as' => 'show', 'uses' => 'Ai52\Ai52Controller@show']);
+Route::domain('aiworks.' . config('app.domain'))->name('aiworks.')->group(function () {
+    Route::get('/', ['as' => 'home', 'uses' => 'AiWorks\AiWorksController@index']);
+    Route::get('/{id}', ['as' => 'show', 'uses' => 'AiWorks\AiWorksController@show']);
 });
 
 // Projects are on sub-domains

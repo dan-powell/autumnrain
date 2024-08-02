@@ -6,14 +6,14 @@ return [
     'navigation' => [
         [
             'label' => 'Gallery of Work',
-            'url' => ['project.home', ['ai52','home']],
+            'url' => ['project.home', ['aiworks','home']],
             'icon' => 'img/sidebar/icons.svg#design'
         ]
     ],
-    'view' => 'projects.ai52.home',
+    'view' => 'projects.aiworks.home',
     'routes' => [
         'gallery' => [
-            'view' => 'projects.ai52.gallery',
+            'view' => 'projects.aiworks.gallery',
         ]
     ],
 ];

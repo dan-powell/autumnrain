@@ -1,7 +1,7 @@
-@extends('projects.ai52.base')
+@extends('projects.aiworks.base')
 
 @section('meta')
-    <title>{{ $piece->theme->name }} - Ai52 - Dan Powell Design</title>
+    <title>{{ $piece->theme->name }} - AiWorks - Dan Powell Design</title>
     <meta name="description" content="{{ $piece->description ?? '' }}">
 @stop
 
@@ -12,10 +12,10 @@
     <div class="Show-aside">
         <div class="Show-aside-inner">
             @if($previous)
-                @include('projects.ai52.components._pager', ['piece' => $previous, 'class' => '_prev'])
+                @include('projects.aiworks.components._pager', ['piece' => $previous, 'class' => '_prev'])
             @endif
             {{-- <a class="Show-logo" href="/">
-                <img src="{{ asset('assets/ai52_logo.svg') }}" class="Show-logo-img"/>
+                <img src="{{ asset('assets/aiworks_logo.svg') }}" class="Show-logo-img"/>
             </a> --}}
             <div class="Show-aside-mid">
                 <div class="Show-theme">
@@ -33,7 +33,7 @@
                 @endif
             </div>
             @if($first)
-                @include('projects.ai52.components._pager', ['piece' => $first, 'class' => '_first'])
+                @include('projects.aiworks.components._pager', ['piece' => $first, 'class' => '_first'])
             @endif
         </div>
     </div>
@@ -77,7 +77,7 @@
             <details class="Show-metadata">
                 <summary class="Show-metadata-heading">Metadata</summary>
                 <dl class="Show-metadata-list">
-                    @each('projects.ai52.components._metadata', $piece->metadata_json, 'metadata')
+                    @each('projects.aiworks.components._metadata', $piece->metadata_json, 'metadata')
                 </dl>
             </details>
         @endif
@@ -85,13 +85,13 @@
     <div class="Show-aside _last">
         <div class="Show-aside-inner">
             @if($previous)
-                @include('projects.ai52.components._pager', ['piece' => $previous, 'class' => '_prev'])
+                @include('projects.aiworks.components._pager', ['piece' => $previous, 'class' => '_prev'])
             @endif
             @if($next)
-                @include('projects.ai52.components._pager', ['piece' => $next, 'class' => '_next'])
+                @include('projects.aiworks.components._pager', ['piece' => $next, 'class' => '_next'])
             @endif
             @if($last)
-                @include('projects.ai52.components._pager', ['piece' => $last, 'class' => '_last'])
+                @include('projects.aiworks.components._pager', ['piece' => $last, 'class' => '_last'])
             @endif
         </div>
     </div>

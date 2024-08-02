@@ -6,10 +6,10 @@ return [
             'name' => 'Ai 52',
             'sub' => null,
             'description' => '<p></p>',
-            'thumb' => 'projects/ai52/thumb.jpg',
+            'thumb' => 'projects/aiworks/thumb.jpg',
             'created_at' => '2020-11-22 00:00:00',
             'updated_at' => '2020-11-22 00:00:00',
-            'url' => ['project.home', ['ai52']],
+            'url' => ['project.home', ['aiworks']],
         ],
         [
             'name' => 'Adventures in 3D Printing',

@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["/js/projects/ai52"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["/js/projects/aiworks"],{
 
 /***/ "./node_modules/glightbox/dist/js/glightbox.min.js":
 /*!*********************************************************!*\
@@ -11,9 +11,9 @@
 
 /***/ }),
 
-/***/ "./resources/scripts/projects/ai52/base.js":
+/***/ "./resources/scripts/projects/aiworks/base.js":
 /*!*************************************************!*\
-  !*** ./resources/scripts/projects/ai52/base.js ***!
+  !*** ./resources/scripts/projects/aiworks/base.js ***!
   \*************************************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -32,12 +32,12 @@ var lightbox = glightbox__WEBPACK_IMPORTED_MODULE_0___default()({
 
 /***/ 4:
 /*!*******************************************************!*\
-  !*** multi ./resources/scripts/projects/ai52/base.js ***!
+  !*** multi ./resources/scripts/projects/aiworks/base.js ***!
   \*******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /app/resources/scripts/projects/ai52/base.js */"./resources/scripts/projects/ai52/base.js");
+module.exports = __webpack_require__(/*! /app/resources/scripts/projects/aiworks/base.js */"./resources/scripts/projects/aiworks/base.js");
 
 
 /***/ })

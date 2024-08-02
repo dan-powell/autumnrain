@@ -1,11 +1,11 @@
 <?php
 
-namespace Database\Factories\Ai52;
+namespace Database\Factories\AiWorks;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Ai52\Piece>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\AiWorks\Piece>
  */
 class PieceFactory extends Factory
 {
@@ -52,6 +52,6 @@ class PieceFactory extends Factory
 
     private function image(): string
     {
-        return 'ai52/test.jpg';
+        return 'aiworks/test.jpg';
     }
 }

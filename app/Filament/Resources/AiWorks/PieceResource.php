@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Filament\Resources\Ai52;
+namespace App\Filament\Resources\AiWorks;
 
-use App\Filament\Clusters\Ai52;
-use App\Filament\Resources\Ai52\PieceResource\Pages;
-use App\Filament\Resources\Ai52\PieceResource\RelationManagers;
-use App\Models\Ai52\Piece;
+use App\Filament\Clusters\AiWorks;
+use App\Filament\Resources\AiWorks\PieceResource\Pages;
+use App\Filament\Resources\AiWorks\PieceResource\RelationManagers;
+use App\Models\AiWorks\Piece;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -21,7 +21,7 @@ use Filament\Forms\Set;
 
 class PieceResource extends Resource
 {
-    protected static ?string $cluster = Ai52::class;
+    protected static ?string $cluster = AiWorks::class;
 
     protected static ?string $model = Piece::class;
 
@@ -64,12 +64,12 @@ class PieceResource extends Resource
                     ]),
                 Forms\Components\FileUpload::make('image')
                     ->disk('project_images')
-                    ->directory(fn(Get $get) => 'ai52/' . $get('id') . '/image')
+                    ->directory(fn(Get $get) => 'aiworks/' . $get('id') . '/image')
                     ->image()
                     ->required(),
                 Forms\Components\FileUpload::make('thumbnail')
                     ->disk('project_images')
-                    ->directory(fn(Get $get) => 'ai52/' . $get('id') . '/thumbnail')
+                    ->directory(fn(Get $get) => 'aiworks/' . $get('id') . '/thumbnail')
                     ->image()
                     ->imageEditor(),
                 Forms\Components\MarkdownEditor::make('description')
@@ -78,7 +78,7 @@ class PieceResource extends Resource
                     ->columnSpanFull(),
                 Forms\Components\FileUpload::make('video')
                     ->disk('project_assets')
-                    ->directory(fn(Get $get) => 'ai52/' . $get('id') . '/video'),
+                    ->directory(fn(Get $get) => 'aiworks/' . $get('id') . '/video'),
                 Forms\Components\Section::make('Process')->schema([
                     Forms\Components\Repeater::make('process')
                         ->schema([
@@ -89,7 +89,7 @@ class PieceResource extends Resource
                                 ->columnSpanFull(),
                             Forms\Components\FileUpload::make('images')
                                 ->disk('project_images')
-                                ->directory(fn(Get $get) => 'ai52/' . $get('id') . '/process')
+                                ->directory(fn(Get $get) => 'aiworks/' . $get('id') . '/process')
                                 ->image()
                                 ->multiple()
                                 ->reorderable()

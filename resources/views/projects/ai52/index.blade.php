@@ -1,4 +1,4 @@
-@extends('projects.ai52.base')
+@extends('projects.aiworks.base')
 
 @section('meta')
     <title>Exploring AI Art - Dan Powell Design</title>
@@ -10,7 +10,7 @@
 @section('main')
     <div class="Index-container">
         <header class="Index-header">
-            <img src="{{ asset('assets/ai52_logo.svg') }}" class="Index-header-logo"/>
+            <img src="{{ asset('assets/aiworks_logo.svg') }}" class="Index-header-logo"/>
             <p class="Index-header-desc">In this artistic journey of discovery, we explore the creative potential of AI by creating a unique piece of artwork each week for a span of one year. This experiment aims to uncover the boundless possibilities of a collaborative creative workflow involving both humans and artificial intelligence.
                 @if(request()->query('order') == 'asc')
                     <a href="{{ url('/?order=desc') }}">Latest first</a>
@@ -18,7 +18,7 @@
                     <a href="{{ url('/?order=asc') }}">Oldest first</a>
                 @endif
             </p>
-            
+
         </header>
         <div class="Index-months">
             @foreach($dates as $date => $month)
@@ -37,7 +37,7 @@
                                     @foreach($theme->pieces as $piece)
                                         <div class="Index-piece">
                                             <a href="{{ $piece->url }}" class="Index-piece-link"></a>
-                                            <img 
+                                            <img
                                                 class="Index-piece-img"
                                                 alt="{{ $piece->name }}"
                                                 title="{{ $piece->name }}"

@@ -11,4 +11,4 @@
   IDE: Coda 2.5, Sketch, MAMP Pro
 
 /* THIRD PARTY CREDITS */
-gallery icon by Alice Design from the Noun Project
+

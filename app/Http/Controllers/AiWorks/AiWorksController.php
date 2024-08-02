@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Ai52;
+namespace App\Http\Controllers\AiWorks;
 
 use App\Http\Controllers\Controller;
-use App\Models\Ai52\Piece;
-use App\Models\Ai52\Theme;
+use App\Models\AiWorks\Piece;
+use App\Models\AiWorks\Theme;
 use Illuminate\Http\Request;
 
-class Ai52Controller extends Controller
+class AiWorksController extends Controller
 {
     public function index(Request $request)
 	{
@@ -15,7 +15,7 @@ class Ai52Controller extends Controller
             'order' => $request->query('order'),
         ]);
 
-        return view('projects.ai52.index')->with([
+        return view('projects.aiworks.index')->with([
             'themes' => $themes,
             'dates' => $themes->groupBy(function($item) {
                 return $item->date->format('F');
@@ -26,7 +26,7 @@ class Ai52Controller extends Controller
     public function show(string $slug)
 	{
         $piece = Piece::with(['theme.pieces'])->where('slug', $slug)->firstOrFail();
-        
+
         $first = Piece::where('created_at', '<', $piece->created_at)->orderBy('created_at', 'ASC')->first();
         $next = Piece::where('created_at', '>', $piece->created_at)->orderBy('created_at', 'ASC')->first();
         $previous = Piece::where('created_at', '<', $piece->created_at)->orderBy('created_at', 'DESC')->first();
@@ -37,10 +37,10 @@ class Ai52Controller extends Controller
             abort('404');
         }
 
-        return view('projects.ai52.show')->with([
-            'piece' => $piece, 
-            'first' =>  $first, 
-            'next' =>  $next, 
+        return view('projects.aiworks.show')->with([
+            'piece' => $piece,
+            'first' =>  $first,
+            'next' =>  $next,
             'previous' => $previous,
             'last' => $last
         ]);

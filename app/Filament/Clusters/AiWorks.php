@@ -4,9 +4,9 @@ namespace App\Filament\Clusters;
 
 use Filament\Clusters\Cluster;
 
-class Ai52 extends Cluster
+class AiWorks extends Cluster
 {
-    protected static ?string $navigationLabel = 'AI 52';
+    protected static ?string $navigationLabel = 'AI Works';
 
     protected static ?string $navigationIcon = 'heroicon-o-squares-2x2';
 }

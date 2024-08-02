@@ -60,7 +60,7 @@ proxy:
     - pico8.autumnrain.lndo.site
     - fungifalls.autumnrain.lndo.site
     - 365.autumnrain.lndo.site
-    - ai52.autumnrain.lndo.site
+    - aiworks.autumnrain.lndo.site
   node:
     - bs.autumnrain.lndo.site:3000
   pma:

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Ai52;
+namespace App\Models\AiWorks;
 
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
@@ -17,7 +17,7 @@ class Piece extends Model
     /**
      * The table associated with the model.
      */
-    protected $table = 'ai52_piece';
+    protected $table = 'aiworks_piece';
 
     /**
      * Mass assignable attributes.
@@ -53,7 +53,7 @@ class Piece extends Model
     {
         // Clean up images folder on delete
         static::deleted(function (Piece $piece) {
-            Storage::disk('project_images')->deleteDirectory('ai52/' . $piece->id);
+            Storage::disk('project_images')->deleteDirectory('aiworks/' . $piece->id);
         });
     }
 
@@ -65,7 +65,7 @@ class Piece extends Model
         return Attribute::make(
             get: function (?string $value, array $attributes): ?string
             {
-                return route('ai52.show', $attributes['slug']);
+                return route('aiworks.show', $attributes['slug']);
             }
         );
     }
@@ -132,7 +132,7 @@ class Piece extends Model
      */
     public function fixPath(?string $path): ?string
     {
-        $pre = 'ai52/';
+        $pre = 'aiworks/';
         if(!is_string($path)) {
             return null;
         }

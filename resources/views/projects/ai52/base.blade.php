@@ -7,7 +7,7 @@
 
 @section('navigation')
     @component('sidebar.components.navigation')
-        @foreach(config('projects.ai52.navigation') as $item)
+        @foreach(config('projects.aiworks.navigation') as $item)
             @component('sidebar.components.item')
                 @slot('url', $item['url'] ?? null)
                 @slot('icon', $item['icon'] ?? null)
@@ -20,11 +20,11 @@
 @endsection
 
 @push('style')
-    <link rel="stylesheet" href="{{ mix('css/projects/ai52.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ mix('css/projects/aiworks.css') }}" type="text/css">
 @endpush
 
 
 @push('script')
-    <script defer src="{{ mix('js/projects/ai52.js') }}"></script>
-@endpush 
+    <script defer src="{{ mix('js/projects/aiworks.js') }}"></script>
+@endpush
 

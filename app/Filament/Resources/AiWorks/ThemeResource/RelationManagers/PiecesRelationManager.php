@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Filament\Resources\Ai52\ThemeResource\RelationManagers;
+namespace App\Filament\Resources\AiWorks\ThemeResource\RelationManagers;
 
-use App\Filament\Clusters\Ai52;
+use App\Filament\Clusters\AiWorks;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class PiecesRelationManager extends RelationManager
 {
-    protected static ?string $cluster = Ai52::class;
+    protected static ?string $cluster = AiWorks::class;
 
     protected static string $relationship = 'pieces';
 

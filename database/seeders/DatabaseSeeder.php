@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder {
 	{
 		Model::unguard();
         $this->call([
-            Ai52Seeder::class,
+            AiWorksSeeder::class,
         ]);
 	}
 

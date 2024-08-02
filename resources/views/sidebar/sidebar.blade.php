@@ -14,13 +14,18 @@
             </span>
         </button>
         @yield('buttons')
-        <a href="{{ config('app.url') }}" class="Sidebar-home">
-            <h1 class="Sidebar-home-title">
-                <span class="Sidebar-home-text Sidebar-home-text--1">Autumn</span>
-                <span class="Sidebar-home-text Sidebar-home-text--2">Rain</span>
-                <span class="Sidebar-home-text Sidebar-home-text--3">Studios</span>
-            </h1>
-        </a>
+        @hasSection('sidebar-name')
+            @yield('sidebar-name')
+        @else
+            <a href="{{ config('app.url') }}" class="Sidebar-name">
+                Autumn Rain Studios
+            </a>
+        @endif
+        @hasSection('sidebar-buttons')
+            <div class="Sidebar-buttonsextra">
+                @yield('buttons_extra')
+            </div>
+        @endif
     </div>
     <div class="Sidebar-overlay">
         <div class="Sidebar-overlay-inner">
@@ -70,7 +75,7 @@
             </svg>
             <div class="Sidebar-nav">
                 <h1 class="Sidebar-title">
-                    <span class="Sidebar-title-h1">@yield('title', 'Dan Powell')</span>
+                    <span class="Sidebar-title-h1">@yield('title', 'Autumn Rain Studios')</span>
                     @hasSection('subtitle')
                         <span class="Sidebar-title-h2">@yield('subtitle')</span>
                     @endif
@@ -79,18 +84,18 @@
             </div>
             <div class="Sidebar-about">
                 <p class="Sidebar-about-text Sidebar-about-text--more">view some of my</p>
-                <a class="Sidebar-about-link" href="{{ route(config('content.sidebar.links.projects')[0]) }}">
+                <a class="Sidebar-about-link" href="{{ route('home') }}">
                     <svg class="Sidebar-about-link-icon" viewBox="0 0 512 512">
                         <use xlink:href="{{ asset('img/sidebar/icons.svg#projects') }}"></use>
                     </svg>
                     <span class="Sidebar-about-link-text">Projects</span>
                 </a>
-                <p class="Sidebar-about-text Sidebar-about-text--more">or checkout my code on</p>
-                <a class="Sidebar-about-link" href="{{ url(config('content.sidebar.links.github')) }}">
+                <p class="Sidebar-about-text Sidebar-about-text--more">view my professional</p>
+                <a class="Sidebar-about-link" href="{{ route('home-pro') }}">
                     <svg class="Sidebar-about-link-icon" viewBox="0 0 512 512">
-                        <use xlink:href="{{ asset('img/sidebar/icons.svg#github') }}"></use>
+                        <use xlink:href="{{ asset('img/sidebar/icons.svg#projects') }}"></use>
                     </svg>
-                    <span class="Sidebar-about-link-text">Github</span>
+                    <span class="Sidebar-about-link-text">Profile</span>
                 </a>
             </div>
         </div>

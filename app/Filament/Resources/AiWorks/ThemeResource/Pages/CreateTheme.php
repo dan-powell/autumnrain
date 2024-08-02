@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Filament\Resources\Ai52\ThemeResource\Pages;
+namespace App\Filament\Resources\AiWorks\ThemeResource\Pages;
 
-use App\Filament\Resources\Ai52\ThemeResource;
+use App\Filament\Resources\AiWorks\ThemeResource;
 use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
 
