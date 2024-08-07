@@ -23,15 +23,12 @@ class Theme extends Model
     protected $fillable = [
         'name',
         'description',
-        'date'
     ];
 
     /**
      * Auto cast attributes.
      */
-    protected $casts = [
-        'date' => 'date',
-    ];
+    protected $casts = [];
 
     /**
      * Get the pieces for the theme.

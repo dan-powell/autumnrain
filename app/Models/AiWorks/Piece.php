@@ -124,7 +124,7 @@ class Piece extends Model
      */
     public function theme(): BelongsTo
     {
-        return $this->belongsTo(Theme::class, 'theme_id', 'id')->orderBy('date');
+        return $this->belongsTo(Theme::class, 'theme_id', 'id');
     }
 
     /**

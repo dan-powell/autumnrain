@@ -64,7 +64,7 @@ Route::domain(config('app.domain_pro'))->group(function () {
 
 });
 
-// AI52 Project controller
+// AiWorks Project controller
 Route::domain('aiworks.' . config('app.domain'))->name('aiworks.')->group(function () {
     Route::get('/', ['as' => 'home', 'uses' => 'AiWorks\AiWorksController@index']);
     Route::get('/{id}', ['as' => 'show', 'uses' => 'AiWorks\AiWorksController@show']);

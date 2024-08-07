@@ -22,7 +22,7 @@ mix.sass('resources/styles/base/base.scss', 'public/css/base.css')
     .sass('resources/styles/projects/fungifalls/base.scss', 'public/css/projects/fungifalls.css')
     .sass('resources/styles/projects/pico8/base.scss', 'public/css/projects/pico8.css')
     .sass('resources/styles/projects/3dprint/base.scss', 'public/css/projects/3dprint.css')
-    .sass('resources/styles/projects/aiworks/base.scss', 'public/css/projects/ai5works.css')
+    .sass('resources/styles/projects/aiworks/base.scss', 'public/css/projects/aiworks.css')
     .options({
 
     });

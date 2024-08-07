@@ -60,7 +60,7 @@ class PieceResource extends Resource
                             ->relationship('theme')
                             ->searchable()
                             ->preload()
-                            ->getOptionLabelFromRecordUsing(fn (Model $record) => "{$record->name} - {$record->date}"),
+                            ->getOptionLabelFromRecordUsing(fn (Model $record) => "{$record->name}"),
                     ]),
                 Forms\Components\FileUpload::make('image')
                     ->disk('project_images')

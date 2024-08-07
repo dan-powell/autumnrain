@@ -34,8 +34,6 @@ class ThemeResource extends Resource
                     ->disableToolbarButtons(['attachFiles'])
                     ->maxLength(65535)
                     ->columnSpanFull(),
-                Forms\Components\DatePicker::make('date')
-                    ->required(),
             ]);
     }
 
@@ -68,8 +66,7 @@ class ThemeResource extends Resource
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
-            ])
-            ->defaultSort('date', 'desc');
+            ]);
     }
 
     public static function getRelations(): array
