@@ -50,6 +50,24 @@
   border-right: 1px solid #E2DACC;
 }
 
+.Sidebar-name {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0.2rem;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+@media (max-height: 640px) {
+  .Sidebar-name {
+    font-size: 1rem;
+  }
+}
+
 .Sidebar-overlay {
   position: fixed;
   z-index: 9999;

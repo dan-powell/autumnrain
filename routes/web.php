@@ -64,10 +64,10 @@ Route::domain(config('app.domain_pro'))->group(function () {
 
 });
 
-// AiWorks Project controller
-Route::domain('aiworks.' . config('app.domain'))->name('aiworks.')->group(function () {
-    Route::get('/', ['as' => 'home', 'uses' => 'AiWorks\AiWorksController@index']);
-    Route::get('/{id}', ['as' => 'show', 'uses' => 'AiWorks\AiWorksController@show']);
+// AiWork Project controller
+Route::domain('aiwork.' . config('app.domain'))->name('aiwork.')->group(function () {
+    Route::get('/', ['as' => 'home', 'uses' => 'AiWork\AiWorkController@index']);
+    Route::get('/{id}', ['as' => 'show', 'uses' => 'AiWork\AiWorkController@show']);
 });
 
 // Projects are on sub-domains

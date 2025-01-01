@@ -3,13 +3,13 @@
 return [
     'items' => [
         [
-            'name' => 'Ai 52',
+            'name' => 'Ai Work',
             'sub' => null,
             'description' => '<p></p>',
-            'thumb' => 'projects/aiworks/thumb.jpg',
+            'thumb' => 'projects/aiwork/thumb.jpg',
             'created_at' => '2020-11-22 00:00:00',
             'updated_at' => '2020-11-22 00:00:00',
-            'url' => ['project.home', ['aiworks']],
+            'url' => ['project.home', ['aiwork']],
         ],
         [
             'name' => 'Adventures in 3D Printing',

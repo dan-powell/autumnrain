@@ -271,10 +271,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/styles/projects/aiworks/base.scss":
-/*!*****************************************************!*\
-  !*** ./resources/styles/projects/aiworks/base.scss ***!
-  \*****************************************************/
+/***/ "./resources/styles/projects/aiwork/base.scss":
+/*!****************************************************!*\
+  !*** ./resources/styles/projects/aiwork/base.scss ***!
+  \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -316,9 +316,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 0:
-/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** multi ./resources/scripts/main/base.js ./resources/scripts/main/_home.js ./resources/scripts/main/_projects.js ./resources/styles/base/base.scss ./resources/styles/main/base.scss ./resources/styles/sidebar/base.scss ./resources/styles/projects/365/base.scss ./resources/styles/projects/fungifalls/base.scss ./resources/styles/projects/pico8/base.scss ./resources/styles/projects/3dprint/base.scss ./resources/styles/projects/aiworks/base.scss ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/scripts/main/base.js ./resources/scripts/main/_home.js ./resources/scripts/main/_projects.js ./resources/styles/base/base.scss ./resources/styles/main/base.scss ./resources/styles/sidebar/base.scss ./resources/styles/projects/365/base.scss ./resources/styles/projects/fungifalls/base.scss ./resources/styles/projects/pico8/base.scss ./resources/styles/projects/3dprint/base.scss ./resources/styles/projects/aiwork/base.scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -332,7 +332,7 @@ __webpack_require__(/*! /app/resources/styles/projects/365/base.scss */"./resour
 __webpack_require__(/*! /app/resources/styles/projects/fungifalls/base.scss */"./resources/styles/projects/fungifalls/base.scss");
 __webpack_require__(/*! /app/resources/styles/projects/pico8/base.scss */"./resources/styles/projects/pico8/base.scss");
 __webpack_require__(/*! /app/resources/styles/projects/3dprint/base.scss */"./resources/styles/projects/3dprint/base.scss");
-module.exports = __webpack_require__(/*! /app/resources/styles/projects/aiworks/base.scss */"./resources/styles/projects/aiworks/base.scss");
+module.exports = __webpack_require__(/*! /app/resources/styles/projects/aiwork/base.scss */"./resources/styles/projects/aiwork/base.scss");
 
 
 /***/ })

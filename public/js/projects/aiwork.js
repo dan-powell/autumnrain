@@ -12,9 +12,9 @@
 /***/ }),
 
 /***/ "./resources/scripts/projects/aiwork/base.js":
-/*!****************************************************!*\
+/*!***************************************************!*\
   !*** ./resources/scripts/projects/aiwork/base.js ***!
-  \****************************************************/
+  \***************************************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -31,9 +31,9 @@ var lightbox = glightbox__WEBPACK_IMPORTED_MODULE_0___default()({
 /***/ }),
 
 /***/ 4:
-/*!**********************************************************!*\
+/*!*********************************************************!*\
   !*** multi ./resources/scripts/projects/aiwork/base.js ***!
-  \**********************************************************/
+  \*********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

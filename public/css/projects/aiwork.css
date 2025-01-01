@@ -876,23 +876,534 @@ iframe.wait-autoplay {
     background: #000;
   }
 }
-body {
-  background: #6d486d;
-  color: #000;
-  font-family: "VT323", sans-serif;
-  line-height: normal;
+.Index {
+  --gutter: 2rem;
 }
 
-p {
+.Index-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 2em;
+  padding: 0 var(--gutter);
+  margin-bottom: 2rem;
+}
+
+.Index-header-logo {
+  max-width: 30ch;
+  flex: 0 0 auto;
+}
+
+.Index-header-desc {
+  padding: 1.4em 0;
+  max-width: 66ch;
+}
+
+@media screen and (max-width: 640px) {
+  .Index-header {
+    flex-wrap: wrap;
+  }
+}
+
+.Index-months {
+  padding: var(--gutter);
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+}
+
+.Index-month {
+  display: flex;
+  gap: 1em;
+  justify-content: space-between;
+}
+
+.Index-month-date {
+  order: 2;
+  flex: 0 0 auto;
   line-height: 1;
 }
 
-a {
-  color: #b6da91;
+.Index-month-date-h {
+  writing-mode: vertical-rl;
+  display: block;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 1em;
+  text-transform: uppercase;
+  font-size: 3em;
 }
 
-a:hover {
-  color: #6d486d;
+@media screen and (max-width: 640px) {
+  .Index-month-date-h {
+    font-size: 2em;
+  }
+}
+
+.Index-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4rem;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 1280px) {
+  .Index-list {
+    justify-content: flex-start;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .Index-list {
+    gap: 2rem;
+  }
+}
+
+.Index-theme {
+  flex: 0 1 auto;
+  border-left: 2px solid #B5B5B5;
+  padding-left: 1em;
+}
+
+.Index-theme-heading {
+  margin-bottom: 0.5em;
+}
+
+.Index-theme-week {
+  font-size: 2.2em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.Index-theme-name {
+  font-size: 3em;
+  line-height: 1;
+  margin-top: -0.4em;
+  padding-left: 0.5em;
+  color: #FF0B4B;
+  font-family: "Dancing Script", serif;
+}
+
+@media screen and (max-width: 970px) {
+  .Index-theme {
+    font-size: 0.9em;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .Index-theme {
+    font-size: 0.8em;
+  }
+}
+
+.Index-pieces {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+@media screen and (max-width: 640px) {
+  .Index-pieces {
+    gap: 1rem;
+  }
+
+  .Index-pieces > * {
+    flex: 0 1 calc(50% - 1rem);
+  }
+}
+
+.Index-piece {
+  position: relative;
+}
+
+.Index-piece:hover .Index-piece-img {
+  transform: rotate(4deg) scale(1.1);
+}
+
+.Index-piece:hover .Index-piece-link {
+  border-color: #FF0B4B;
+  border-width: 10px;
+}
+
+.Index-piece-link {
+  border: 0 solid transparent;
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.Index-piece-img {
+  transition: all 0.2s ease-in;
+  max-height: 400px;
+}
+
+@media screen and (max-width: 1920px) {
+  .Index-piece-img {
+    max-height: 280px;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .Index-piece-img {
+    max-height: 200px;
+  }
+}
+
+.Index-pagination {
+  margin: 1rem auto;
+  padding: 0 var(--gutter);
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 480px) {
+  .Index {
+    --gutter: 1rem;
+  }
+}
+
+.Pagination {
+  font-family: "Orbitron", san-serif;
+  justify-content: flex-start;
+}
+
+.Pagination a,
+.Pagination span {
+  border-radius: 0;
+}
+
+.Pagination a {
+  color: #FF0B4B;
+  border-color: #FF0B4B;
+}
+
+.Pagination a:hover {
+  background: #FF0B4B;
+}
+
+.Pagination li.is-active a,
+.Pagination li.is-active span {
+  border-color: #FF0B4B;
+  background: #FF0B4B;
+}
+
+.Show {
+  --padding: 2rem;
+}
+
+.Show-inner {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Show-aside {
+  flex: 1 0 auto;
+}
+
+.Show-aside._last .Show-aside-inner {
+  align-items: flex-end;
+}
+
+.Show-aside._last .Show-pagination._prev {
+  display: none;
+}
+
+.Show-aside-inner {
+  padding: var(--padding);
+  position: -webkit-sticky;
+  position: sticky;
+  min-height: 100vh;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--padding);
+}
+
+.Show-aside-mid {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
+  gap: 1rem;
+  margin-left: auto;
+}
+
+.Show-pagination {
+  position: relative;
+  max-width: 160px;
+}
+
+.Show-pagination:hover .Show-pagination-img {
+  transform: rotate(4deg) scale(1.1);
+}
+
+.Show-pagination:hover .Show-pagination-link {
+  border-color: #FF0B4B;
+  border-width: 10px;
+}
+
+.Show-pagination-link {
+  border: 0 solid transparent;
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.Show-pagination-img {
+  display: block;
+  transition: all 0.2s ease-in;
+  position: relative;
+}
+
+.Show-pagination:after {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  font-size: 1.8em;
+  top: 25%;
+  padding: 0.5em;
+  background: #FF0B4B;
+  color: #fff;
+  font-weight: bold;
+  line-height: 1;
+  text-transform: uppercase;
+  font-family: "Orbitron", san-serif;
+}
+
+.Show-pagination._minor {
+  max-width: 120px;
+}
+
+.Show-pagination._first:after {
+  content: "<<";
+  left: -15%;
+}
+
+.Show-pagination._prev:after {
+  content: "<";
+  left: -15%;
+}
+
+.Show-pagination._next:after {
+  content: ">";
+  right: -15%;
+}
+
+.Show-pagination._last:after {
+  content: ">>";
+  right: -15%;
+}
+
+@media screen and (max-width: 960px) {
+  .Show-pagination {
+    max-width: 120px;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .Show-pagination {
+    max-width: 100px;
+  }
+}
+
+.Show-logo {
+  display: block;
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 10ch;
+}
+
+.Show-theme {
+  flex: 1 0 auto;
+}
+
+.Show-theme-week {
+  line-height: 1;
+  font-size: 1.8rem;
+}
+
+.Show-theme-name {
+  font-size: 2.8rem;
+  padding-left: 0.5em;
+  margin-top: -0.4em;
+  line-height: 1;
+  color: #FF0B4B;
+  font-family: "Dancing Script", serif;
+}
+
+.Show-title {
+  flex: 1 0 auto;
+}
+
+.Show-title-num {
+  line-height: 1;
+  font-size: 1.8rem;
+}
+
+.Show-title-name {
+  font-size: 2.8rem;
+  padding-left: 0.5em;
+  margin-top: -0.4em;
+  line-height: 1;
+  color: #FF0B4B;
+  font-family: "Dancing Script", serif;
+}
+
+.Show-main {
+  flex: 0 1 auto;
+  padding: var(--padding);
+  gap: var(--padding);
+  display: flex;
+  flex-direction: column;
+}
+
+.Show-media {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.Show-image-img {
+  margin: 0 auto;
+  max-height: calc(100vh - var(--padding) * 2);
+  max-width: 100%;
+}
+
+.Show-video {
+  max-height: 80vh;
+  max-width: 100%;
+}
+
+.Show-desc {
+  max-width: 50ch;
+}
+
+.Show-process-heading {
+  text-transform: uppercase;
+}
+
+.Show-process-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 3rem;
+}
+
+.Show-process-group-heading {
+  padding: 0.5em 0;
+}
+
+.Show-process-group-heading-h {
+  font-size: 1.6em;
+  color: #FF0B4B;
+  font-family: "Dancing Script", serif;
+}
+
+.Show-process-group-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.Show-process-group-desc {
+  max-width: 20ch;
+}
+
+.Show-process-item-img {
+  max-height: 200px;
+}
+
+.Show-metadata-heading {
+  font-size: 2.2em;
+  line-height: 1;
+  text-transform: uppercase;
+  font-family: "Orbitron", san-serif;
+  color: #B5B5B5;
+}
+
+.Show-metadata-heading:hover {
+  cursor: pointer;
+}
+
+.Show-metadata-list {
+  display: block;
+  margin-top: 1em;
+}
+
+.Show-metadata-list:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.Show-metadata-key {
+  float: left;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  text-align: right;
+  clear: left;
+}
+
+.Show-metadata-value {
+  float: left;
+  padding: 0 0.5em;
+}
+
+@media screen and (max-width: 1280px) {
+  .Show-inner {
+    flex-wrap: wrap;
+  }
+
+  .Show-aside._last .Show-pagination._prev {
+    display: block;
+  }
+
+  .Show-aside-inner {
+    min-height: auto;
+    flex-direction: row;
+    max-width: 100vw;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .Show-aside-mid {
+    flex-direction: row;
+    flex-wrap: wrap;
+    order: -1;
+    gap: 2rem;
+    margin: 0 auto;
+    max-width: none;
+  }
+
+  .Show-pagination._first {
+    display: none;
+  }
+
+  .Show-pagination._prev {
+    display: none;
+  }
+
+  .Show-pagination._last {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .Show {
+    --padding: 1rem;
+  }
 }
 
 h1,
@@ -901,1026 +1412,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Press Start 2P", sans-serif;
-}
-
-.Home {
-  overflow-x: hidden;
-  padding-top: 0;
-}
-
-.Header {
-  position: relative;
-  display: flex;
-  background: #6d486d;
-}
-
-.Header-intro {
-  flex: 1 1 auto;
-  display: flex;
-  padding: 2em;
-  align-items: center;
-  justify-content: center;
-}
-
-.Header-graphic {
-  flex: 3 1 100%;
-}
-
-.Header-text {
-  padding: 2em;
-  text-align: center;
-  color: #fff;
-}
-
-.Header-title {
-  font-size: 2.4rem;
-  margin-bottom: 1em;
-}
-
-.Header-subtitle {
-  font-size: 2rem;
-  margin-bottom: 1em;
-}
-
-.Header-links {
-  text-align: center;
-}
-
-.Header-link {
-  display: inline-block;
-  padding: 0.5em 1em;
-  margin: 0.5em;
-  border: #b6da91 3px solid;
-  text-transform: uppercase;
-  font-size: 1.2em;
-}
-
-.Header-link:hover {
-  background: #b6da91;
-  color: #6d486d;
-}
-
-.Header-img {
-  width: 100%;
-  image-rendering: -moz-crisp-edges;
-  image-rendering: pixelated;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: 0 50%;
-     object-position: 0 50%;
-  /* positioned top left of the content box */
-}
-
-@media screen and (max-width: 1024px) {
-  .Header {
-    display: block;
-    position: relative;
-  }
-
-  .Header-intro {
-    flex: 1 1 auto;
-    position: relative;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 1;
-  }
-
-  .Header-img {
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    flex: 1 1 100%;
-  }
-
-  .Header-title {
-    font-size: 2rem;
-  }
-
-  .Header-subtitle {
-    font-size: 1.4rem;
-  }
-}
-
-.Games-list {
-  flex-wrap: wrap;
-}
-
-.Games-list > * {
-  flex: 1 1 50%;
-}
-
-.Game {
-  position: relative;
-}
-
-.Game-link {
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  bottom: 0;
-  z-index: 10;
-}
-
-.Game-link:hover {
-  cursor: crosshair;
-}
-
-.Game-link:hover + .Game-inner {
-  cursor: crosshair;
-}
-
-.Game-bg {
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  bottom: 0;
-  z-index: -1;
-  background: #b6da91;
-  box-shadow: inset rgba(0, 0, 0, 0.2) 0 0 3em 3em;
-}
-
-.Game-inner {
-  display: flex;
-  justify-content: space-around;
-}
-
-.Game-cart {
-  flex: 1 1 33%;
-  padding: 2em;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-}
-
-.Game-cart-shadow::after {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 30px;
-  background: radial-gradient(rgb(0, 0, 0), rgba(0, 0, 0, 0) 75%);
-  -webkit-animation-name: floatshadow;
-          animation-name: floatshadow;
-  -webkit-animation-timing-function: ease-in-out;
-          animation-timing-function: ease-in-out;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  -webkit-animation-duration: 4s;
-          animation-duration: 4s;
-}
-
-.Game-cart-float {
-  -webkit-animation-name: float;
-          animation-name: float;
-  -webkit-animation-timing-function: ease-in-out;
-          animation-timing-function: ease-in-out;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  -webkit-animation-duration: 4s;
-          animation-duration: 4s;
-  perspective: 1200px;
-}
-
-.Game-cart-img {
-  -webkit-animation-name: spin;
-          animation-name: spin;
-  -webkit-animation-timing-function: ease-in-out;
-          animation-timing-function: ease-in-out;
-  -webkit-animation-direction: alternate;
-          animation-direction: alternate;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  -webkit-animation-duration: 6s;
-          animation-duration: 6s;
-  transform-style: preserve-3d;
-  image-rendering: -moz-crisp-edges;
-  image-rendering: pixelated;
-  width: 300px;
-}
-
-.Game-name {
-  text-transform: uppercase;
-}
-
-.Game-subtitle {
-  font-size: 1.4em;
-  margin-bottom: 0.5em;
-}
-
-.Game-description {
-  text-align: center;
-  flex: 1 1 66%;
-  padding: 3em 3em 3em 3em;
-}
-
-.Game-wrap {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 1em;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.Game-previews {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex: 1 1 auto;
-}
-
-.Game-video {
-  width: 180px;
-  max-width: 100%;
-  height: auto;
-  margin: 1em;
-  border: 3px #fff solid;
-}
-
-.Game-buttons {
-  flex: 1 1 auto;
-}
-
-.Game-button {
-  position: relative;
-  display: block;
-  padding: 0.5em 1em;
-  margin: 0.5em;
-  border: #6d486d 3px solid;
-  color: #6d486d;
-  text-transform: uppercase;
-  font-size: 1.2em;
-  z-index: 20;
-}
-
-.Game-button:hover {
-  background: #6d486d;
-  color: #b6da91;
-}
-
-.Game:nth-child(2n) .Game-bg {
-  background: #6db691;
-}
-
-.Game:nth-child(2n) .Game-cart-shadow::after {
-  -webkit-animation-delay: 1s;
-          animation-delay: 1s;
-}
-
-.Game:nth-child(2n) .Game-cart-float {
-  -webkit-animation-delay: 1s;
-          animation-delay: 1s;
-}
-
-.Game:nth-child(2n) .Game-cart {
-  order: 2;
-}
-
-.Game:nth-child(2n) .Game-description {
-  order: 1;
-}
-
-@media screen and (max-width: 1024px) {
-  .Game-cart {
-    z-index: 20;
-  }
-}
-
-@media screen and (max-width: 640px) {
-  .Game-inner {
-    flex-wrap: wrap;
-  }
-
-  .Game:nth-child(2n) .Game-cart {
-    order: 1;
-  }
-
-  .Game:nth-child(2n) .Game-description {
-    order: 2;
-  }
-
-  .Game-previews {
-    flex-wrap: wrap;
-  }
-}
-
-@-webkit-keyframes float {
-  0% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-3em);
-  }
-
-  100% {
-    transform: translateY(0);
-  }
-}
-
-@keyframes float {
-  0% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-3em);
-  }
-
-  100% {
-    transform: translateY(0);
-  }
-}
-
-@-webkit-keyframes floatshadow {
-  0% {
-    transform: scale(1);
-    opacity: 0.6;
-  }
-
-  50% {
-    transform: scale(1.6);
-    opacity: 0.2;
-  }
-
-  100% {
-    transform: scale(1);
-    opacity: 0.6;
-  }
-}
-
-@keyframes floatshadow {
-  0% {
-    transform: scale(1);
-    opacity: 0.6;
-  }
-
-  50% {
-    transform: scale(1.6);
-    opacity: 0.2;
-  }
-
-  100% {
-    transform: scale(1);
-    opacity: 0.6;
-  }
-}
-
-@-webkit-keyframes spin {
-  from {
-    transform: rotateY(40deg);
-  }
-
-  to {
-    transform: rotateY(-40deg);
-  }
-}
-
-@keyframes spin {
-  from {
-    transform: rotateY(40deg);
-  }
-
-  to {
-    transform: rotateY(-40deg);
-  }
-}
-
-/* Our mixin positions a copy of our text
-directly on our existing text, while
-also setting content to the appropriate
-text set in the data-text attribute. */
-
-.u-glitch {
-  position: relative;
-  /* Animation provies a slight random skew. Check bottom of doc
-  for more information on how to random skew. */
-}
-
-.u-glitch::before {
-  content: attr(data-text);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  left: 1px;
-  text-shadow: -1px 0 #ff00c1;
-  /* Creates an initial clip for our glitch. This works in
-  a typical top,right,bottom,left fashion and creates a mask
-  to only show a certain part of the glitch at a time. */
-  clip: rect(44px, 450px, 56px, 0);
-  /* Runs our glitch-anim defined below to run in a 5s loop, infinitely,
-  with an alternating animation to keep things fresh. */
-  animation: glitch-anim 5s infinite linear alternate-reverse;
-}
-
-.u-glitch::after {
-  content: attr(data-text);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  left: -1px;
-  text-shadow: -1px 0 #00fff9, 1px 1px #ff00c1;
-  animation: glitch-anim2 1s infinite linear alternate-reverse;
-}
-
-/* Creates an animation with 20 steaps. For each step, it calculates
-a percentage for the specific step. It then generates a random clip
-box to be used for the random glitch effect. Also adds a very subtle
-skew to change the 'thickness' of the glitch.*/
-
-@-webkit-keyframes glitch-anim {
-  0% {
-    clip: rect(18px, 9999px, 87px, 0);
-    transform: skew(0.94deg);
-  }
-
-  5% {
-    clip: rect(46px, 9999px, 95px, 0);
-    transform: skew(0.23deg);
-  }
-
-  10% {
-    clip: rect(90px, 9999px, 98px, 0);
-    transform: skew(0.02deg);
-  }
-
-  15% {
-    clip: rect(53px, 9999px, 89px, 0);
-    transform: skew(0.25deg);
-  }
-
-  20% {
-    clip: rect(83px, 9999px, 87px, 0);
-    transform: skew(0.98deg);
-  }
-
-  25% {
-    clip: rect(33px, 9999px, 24px, 0);
-    transform: skew(0.35deg);
-  }
-
-  30% {
-    clip: rect(36px, 9999px, 96px, 0);
-    transform: skew(0.13deg);
-  }
-
-  35% {
-    clip: rect(11px, 9999px, 40px, 0);
-    transform: skew(0.24deg);
-  }
-
-  40% {
-    clip: rect(2px, 9999px, 19px, 0);
-    transform: skew(0.02deg);
-  }
-
-  45% {
-    clip: rect(4px, 9999px, 7px, 0);
-    transform: skew(0.1deg);
-  }
-
-  50% {
-    clip: rect(39px, 9999px, 93px, 0);
-    transform: skew(0.73deg);
-  }
-
-  55% {
-    clip: rect(15px, 9999px, 26px, 0);
-    transform: skew(0.8deg);
-  }
-
-  60% {
-    clip: rect(88px, 9999px, 96px, 0);
-    transform: skew(0.85deg);
-  }
-
-  65% {
-    clip: rect(91px, 9999px, 51px, 0);
-    transform: skew(0.74deg);
-  }
-
-  70% {
-    clip: rect(9px, 9999px, 30px, 0);
-    transform: skew(0.2deg);
-  }
-
-  75% {
-    clip: rect(50px, 9999px, 56px, 0);
-    transform: skew(0.55deg);
-  }
-
-  80% {
-    clip: rect(100px, 9999px, 56px, 0);
-    transform: skew(0.43deg);
-  }
-
-  85% {
-    clip: rect(37px, 9999px, 77px, 0);
-    transform: skew(0.01deg);
-  }
-
-  90% {
-    clip: rect(55px, 9999px, 2px, 0);
-    transform: skew(0.18deg);
-  }
-
-  95% {
-    clip: rect(25px, 9999px, 64px, 0);
-    transform: skew(0.41deg);
-  }
-
-  100% {
-    clip: rect(29px, 9999px, 14px, 0);
-    transform: skew(0.64deg);
-  }
-}
-
-@keyframes glitch-anim {
-  0% {
-    clip: rect(18px, 9999px, 87px, 0);
-    transform: skew(0.94deg);
-  }
-
-  5% {
-    clip: rect(46px, 9999px, 95px, 0);
-    transform: skew(0.23deg);
-  }
-
-  10% {
-    clip: rect(90px, 9999px, 98px, 0);
-    transform: skew(0.02deg);
-  }
-
-  15% {
-    clip: rect(53px, 9999px, 89px, 0);
-    transform: skew(0.25deg);
-  }
-
-  20% {
-    clip: rect(83px, 9999px, 87px, 0);
-    transform: skew(0.98deg);
-  }
-
-  25% {
-    clip: rect(33px, 9999px, 24px, 0);
-    transform: skew(0.35deg);
-  }
-
-  30% {
-    clip: rect(36px, 9999px, 96px, 0);
-    transform: skew(0.13deg);
-  }
-
-  35% {
-    clip: rect(11px, 9999px, 40px, 0);
-    transform: skew(0.24deg);
-  }
-
-  40% {
-    clip: rect(2px, 9999px, 19px, 0);
-    transform: skew(0.02deg);
-  }
-
-  45% {
-    clip: rect(4px, 9999px, 7px, 0);
-    transform: skew(0.1deg);
-  }
-
-  50% {
-    clip: rect(39px, 9999px, 93px, 0);
-    transform: skew(0.73deg);
-  }
-
-  55% {
-    clip: rect(15px, 9999px, 26px, 0);
-    transform: skew(0.8deg);
-  }
-
-  60% {
-    clip: rect(88px, 9999px, 96px, 0);
-    transform: skew(0.85deg);
-  }
-
-  65% {
-    clip: rect(91px, 9999px, 51px, 0);
-    transform: skew(0.74deg);
-  }
-
-  70% {
-    clip: rect(9px, 9999px, 30px, 0);
-    transform: skew(0.2deg);
-  }
-
-  75% {
-    clip: rect(50px, 9999px, 56px, 0);
-    transform: skew(0.55deg);
-  }
-
-  80% {
-    clip: rect(100px, 9999px, 56px, 0);
-    transform: skew(0.43deg);
-  }
-
-  85% {
-    clip: rect(37px, 9999px, 77px, 0);
-    transform: skew(0.01deg);
-  }
-
-  90% {
-    clip: rect(55px, 9999px, 2px, 0);
-    transform: skew(0.18deg);
-  }
-
-  95% {
-    clip: rect(25px, 9999px, 64px, 0);
-    transform: skew(0.41deg);
-  }
-
-  100% {
-    clip: rect(29px, 9999px, 14px, 0);
-    transform: skew(0.64deg);
-  }
-}
-
-@-webkit-keyframes glitch-anim2 {
-  0% {
-    clip: rect(90px, 9999px, 82px, 0);
-    transform: skew(0.33deg);
-  }
-
-  5% {
-    clip: rect(60px, 9999px, 43px, 0);
-    transform: skew(0.05deg);
-  }
-
-  10% {
-    clip: rect(61px, 9999px, 17px, 0);
-    transform: skew(0.29deg);
-  }
-
-  15% {
-    clip: rect(55px, 9999px, 29px, 0);
-    transform: skew(0.54deg);
-  }
-
-  20% {
-    clip: rect(35px, 9999px, 12px, 0);
-    transform: skew(0.84deg);
-  }
-
-  25% {
-    clip: rect(25px, 9999px, 48px, 0);
-    transform: skew(0.24deg);
-  }
-
-  30% {
-    clip: rect(100px, 9999px, 96px, 0);
-    transform: skew(0.96deg);
-  }
-
-  35% {
-    clip: rect(60px, 9999px, 83px, 0);
-    transform: skew(0.6deg);
-  }
-
-  40% {
-    clip: rect(30px, 9999px, 50px, 0);
-    transform: skew(0.49deg);
-  }
-
-  45% {
-    clip: rect(48px, 9999px, 93px, 0);
-    transform: skew(0.12deg);
-  }
-
-  50% {
-    clip: rect(66px, 9999px, 47px, 0);
-    transform: skew(0.06deg);
-  }
-
-  55% {
-    clip: rect(10px, 9999px, 57px, 0);
-    transform: skew(0.9deg);
-  }
-
-  60% {
-    clip: rect(33px, 9999px, 98px, 0);
-    transform: skew(0.67deg);
-  }
-
-  65% {
-    clip: rect(14px, 9999px, 37px, 0);
-    transform: skew(0.23deg);
-  }
-
-  70% {
-    clip: rect(45px, 9999px, 3px, 0);
-    transform: skew(0.63deg);
-  }
-
-  75% {
-    clip: rect(100px, 9999px, 39px, 0);
-    transform: skew(0.53deg);
-  }
-
-  80% {
-    clip: rect(79px, 9999px, 86px, 0);
-    transform: skew(0.62deg);
-  }
-
-  85% {
-    clip: rect(40px, 9999px, 90px, 0);
-    transform: skew(0.58deg);
-  }
-
-  90% {
-    clip: rect(42px, 9999px, 86px, 0);
-    transform: skew(0.93deg);
-  }
-
-  95% {
-    clip: rect(67px, 9999px, 17px, 0);
-    transform: skew(0.99deg);
-  }
-
-  100% {
-    clip: rect(48px, 9999px, 99px, 0);
-    transform: skew(0.44deg);
-  }
-}
-
-@keyframes glitch-anim2 {
-  0% {
-    clip: rect(90px, 9999px, 82px, 0);
-    transform: skew(0.33deg);
-  }
-
-  5% {
-    clip: rect(60px, 9999px, 43px, 0);
-    transform: skew(0.05deg);
-  }
-
-  10% {
-    clip: rect(61px, 9999px, 17px, 0);
-    transform: skew(0.29deg);
-  }
-
-  15% {
-    clip: rect(55px, 9999px, 29px, 0);
-    transform: skew(0.54deg);
-  }
-
-  20% {
-    clip: rect(35px, 9999px, 12px, 0);
-    transform: skew(0.84deg);
-  }
-
-  25% {
-    clip: rect(25px, 9999px, 48px, 0);
-    transform: skew(0.24deg);
-  }
-
-  30% {
-    clip: rect(100px, 9999px, 96px, 0);
-    transform: skew(0.96deg);
-  }
-
-  35% {
-    clip: rect(60px, 9999px, 83px, 0);
-    transform: skew(0.6deg);
-  }
-
-  40% {
-    clip: rect(30px, 9999px, 50px, 0);
-    transform: skew(0.49deg);
-  }
-
-  45% {
-    clip: rect(48px, 9999px, 93px, 0);
-    transform: skew(0.12deg);
-  }
-
-  50% {
-    clip: rect(66px, 9999px, 47px, 0);
-    transform: skew(0.06deg);
-  }
-
-  55% {
-    clip: rect(10px, 9999px, 57px, 0);
-    transform: skew(0.9deg);
-  }
-
-  60% {
-    clip: rect(33px, 9999px, 98px, 0);
-    transform: skew(0.67deg);
-  }
-
-  65% {
-    clip: rect(14px, 9999px, 37px, 0);
-    transform: skew(0.23deg);
-  }
-
-  70% {
-    clip: rect(45px, 9999px, 3px, 0);
-    transform: skew(0.63deg);
-  }
-
-  75% {
-    clip: rect(100px, 9999px, 39px, 0);
-    transform: skew(0.53deg);
-  }
-
-  80% {
-    clip: rect(79px, 9999px, 86px, 0);
-    transform: skew(0.62deg);
-  }
-
-  85% {
-    clip: rect(40px, 9999px, 90px, 0);
-    transform: skew(0.58deg);
-  }
-
-  90% {
-    clip: rect(42px, 9999px, 86px, 0);
-    transform: skew(0.93deg);
-  }
-
-  95% {
-    clip: rect(67px, 9999px, 17px, 0);
-    transform: skew(0.99deg);
-  }
-
-  100% {
-    clip: rect(48px, 9999px, 99px, 0);
-    transform: skew(0.44deg);
-  }
-}
-
-@-webkit-keyframes glitch-skew {
-  0% {
-    transform: skew(-3deg);
-  }
-
-  10% {
-    transform: skew(2deg);
-  }
-
-  20% {
-    transform: skew(1deg);
-  }
-
-  30% {
-    transform: skew(-4deg);
-  }
-
-  40% {
-    transform: skew(2deg);
-  }
-
-  50% {
-    transform: skew(1deg);
-  }
-
-  60% {
-    transform: skew(-2deg);
-  }
-
-  70% {
-    transform: skew(-2deg);
-  }
-
-  80% {
-    transform: skew(0deg);
-  }
-
-  90% {
-    transform: skew(-4deg);
-  }
-
-  100% {
-    transform: skew(-3deg);
-  }
-}
-
-@keyframes glitch-skew {
-  0% {
-    transform: skew(-3deg);
-  }
-
-  10% {
-    transform: skew(2deg);
-  }
-
-  20% {
-    transform: skew(1deg);
-  }
-
-  30% {
-    transform: skew(-4deg);
-  }
-
-  40% {
-    transform: skew(2deg);
-  }
-
-  50% {
-    transform: skew(1deg);
-  }
-
-  60% {
-    transform: skew(-2deg);
-  }
-
-  70% {
-    transform: skew(-2deg);
-  }
-
-  80% {
-    transform: skew(0deg);
-  }
-
-  90% {
-    transform: skew(-4deg);
-  }
-
-  100% {
-    transform: skew(-3deg);
-  }
-}
-
-/* REGULAR SCANLINES SETTINGS */
-
-/* MOVING SCANLINE SETTINGS */
-
-/* MIXINS */
-
-/* CSS .scanlines CLASS */
-
-.u-scanlines {
-  overflow: hidden;
-}
-
-.u-scanlines:before,
-.u-scanlines:after {
-  display: block;
-  pointer-events: none;
-  content: "";
-  position: absolute;
-}
-
-.u-scanlines:before {
-  width: 100%;
-  height: 2px;
-  z-index: 2147483649;
-  background: rgba(0, 0, 0, 0.1);
-  opacity: 0.75;
-  -webkit-animation: scanline 6s linear infinite;
-          animation: scanline 6s linear infinite;
-}
-
-.u-scanlines:after {
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 2147483648;
-  background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.1) 51%);
-  background-size: 100% 4px;
-  -webkit-animation: scanlines 1s steps(60) infinite;
-          animation: scanlines 1s steps(60) infinite;
-}
-
-/* ANIMATE UNIQUE SCANLINE */
-
-@-webkit-keyframes scanline {
-  0% {
-    transform: translate3d(0, 200000%, 0);
-  }
-}
-
-@keyframes scanline {
-  0% {
-    transform: translate3d(0, 200000%, 0);
-  }
-}
-
-@-webkit-keyframes scanlines {
-  0% {
-    background-position: 0 50%;
-  }
-}
-
-@keyframes scanlines {
-  0% {
-    background-position: 0 50%;
-  }
+  font-family: "Orbitron", san-serif;
+  color: #B5B5B5;
 }
 
