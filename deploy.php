@@ -60,7 +60,7 @@ task('files:clean', function () {
 after('deploy:failed', 'deploy:unlock');
 
 // Disable database migrations (because we don't use a DB)
-task('artisan:migrate')->disable();
+#task('artisan:migrate')->disable();
 
 // Deploy files.
 before('deploy:symlink', 'files:push');
