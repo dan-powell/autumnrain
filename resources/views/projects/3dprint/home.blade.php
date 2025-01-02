@@ -10,7 +10,7 @@
 @section('main')
     <div class="HomeVideo">
         <video class="HomeVideo-vid" autoplay muted loop>
-            <source src="{{ asset('/storage/3dprint/3dprint_bg.mp4') }}" type="video/mp4">
+            <source src="{{ asset('/assets/video/3dprint_bg.mp4') }}" type="video/mp4">
         </video>
     </div>
 	<section class="HomeTitle js-anime-observer">
@@ -80,17 +80,17 @@
         <div class="HomeTimelapses-list">
             <div class="HomeTimelapses-item js-anime-zoom" data-delay="600">
                 <video class="HomeTimelapses-vid" preload="none" controls muted poster="{!! app('image')->crop('1024', '768')->url('/timelapse_console.jpg') !!}">
-                    <source src="{{ asset('/storage/3dprint/timelapse_console_opt.mp4')}}" type="video/mp4">
+                    <source src="{{ asset('/assets/video/timelapse_console_opt.mp4')}}" type="video/mp4">
                 </video>
             </div>
             <div class="HomeTimelapses-item HomeTimelapses-item--center js-anime-zoom">
                 <video class="HomeTimelapses-vid" controls muted preload="none" poster="{!! app('image')->crop('1024', '768')->url('/timelapse_oddish.jpg') !!}">
-                    <source src="{{ asset('/storage/3dprint/timelapse_oddish_opt.mp4')}}" type="video/mp4">
+                    <source src="{{ asset('/assets/video/timelapse_oddish_opt.mp4')}}" type="video/mp4">
                 </video>
             </div>
             <div class="HomeTimelapses-item js-anime-zoom" data-delay="800">
                 <video class="HomeTimelapses-vid" preload="none" controls muted poster="{!! app('image')->crop('1024', '768')->url('/timelapse_rams.jpg') !!}">
-                    <source src="{{ asset('/storage/3dprint/timelapse_rams_opt.mp4')}}" type="video/mp4">
+                    <source src="{{ asset('/assets/video/timelapse_rams_opt.mp4')}}" type="video/mp4">
                 </video>
             </div>
         </div>
