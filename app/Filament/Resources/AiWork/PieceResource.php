@@ -55,6 +55,9 @@ class PieceResource extends Resource
                         Forms\Components\Hidden::make('slug_changed')
                             ->default(false)
                             ->dehydrated(false),
+                        Forms\Components\DateTimePicker::make('date')
+                            ->default(now())
+                            ->required(),
                     ]),
                 Forms\Components\FileUpload::make('image')
                     ->disk('project_images')
@@ -104,6 +107,9 @@ class PieceResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('date')
+                    ->dateTime()
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('slug')
                     ->searchable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -133,7 +139,7 @@ class PieceResource extends Resource
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ])
-            ->defaultSort('created_at', 'desc');
+            ->defaultSort('date', 'desc');
     }
 
     public static function getRelations(): array

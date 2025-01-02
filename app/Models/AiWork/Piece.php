@@ -32,7 +32,7 @@ class Piece extends Model
         'process',
         'video',
         'metadata',
-        'theme_id',
+        'date',
     ];
 
     /**
@@ -40,6 +40,7 @@ class Piece extends Model
      */
     protected $casts = [
         'process' => 'json',
+        'date' => 'datetime'
     ];
 
     protected $appends = [

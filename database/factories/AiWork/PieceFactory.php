@@ -23,6 +23,7 @@ class PieceFactory extends Factory
             'thumbnail' => $this->image(),
             'description' => fake()->paragraph(),
             'process' => $this->process(),
+            'date' => fake()->dateTime()
         ];
     }
 

@@ -11,14 +11,10 @@ class AiWorkController extends Controller
 {
     public function index(Request $request)
 	{
-        $themes = Theme::with(['pieces'])->orderBy('created_at', $request->query('order') == 'asc' ? 'ASC' : 'DESC')->paginate(6)->appends([
-            'order' => $request->query('order'),
-        ]);
-
         return view('projects.aiwork.index')->with([
-            'themes' => $themes,
-            'pieces' => Piece::with(['themes'])->orderBy('created_at', $request->query('order') == 'asc' ? 'ASC' : 'DESC')->paginate(24)->appends([
-                'created_at' => $request->query('order'),
+            'themes' => Theme::with(['pieces'])->orderBy('name', 'ASC'),
+            'pieces' => Piece::with(['themes'])->orderBy('date', $request->query('order') == 'asc' ? 'ASC' : 'DESC')->paginate(24)->appends([
+                'date' => $request->query('order'),
             ])
         ]);
     }

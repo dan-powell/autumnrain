@@ -905,101 +905,11 @@ iframe.wait-autoplay {
   }
 }
 
-.Index-months {
-  padding: var(--gutter);
-  display: flex;
-  flex-direction: column;
-  gap: 6rem;
-}
-
-.Index-month {
-  display: flex;
-  gap: 1em;
-  justify-content: space-between;
-}
-
-.Index-month-date {
-  order: 2;
-  flex: 0 0 auto;
-  line-height: 1;
-}
-
-.Index-month-date-h {
-  writing-mode: vertical-rl;
-  display: block;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 1em;
-  text-transform: uppercase;
-  font-size: 3em;
-}
-
-@media screen and (max-width: 640px) {
-  .Index-month-date-h {
-    font-size: 2em;
-  }
-}
-
-.Index-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4rem;
-  margin: 0 auto;
-}
-
-@media screen and (max-width: 1280px) {
-  .Index-list {
-    justify-content: flex-start;
-  }
-}
-
-@media screen and (max-width: 640px) {
-  .Index-list {
-    gap: 2rem;
-  }
-}
-
-.Index-theme {
-  flex: 0 1 auto;
-  border-left: 2px solid #B5B5B5;
-  padding-left: 1em;
-}
-
-.Index-theme-heading {
-  margin-bottom: 0.5em;
-}
-
-.Index-theme-week {
-  font-size: 2.2em;
-  line-height: 1;
-  text-transform: uppercase;
-}
-
-.Index-theme-name {
-  font-size: 3em;
-  line-height: 1;
-  margin-top: -0.4em;
-  padding-left: 0.5em;
-  color: #FF0B4B;
-  font-family: "Dancing Script", serif;
-}
-
-@media screen and (max-width: 970px) {
-  .Index-theme {
-    font-size: 0.9em;
-  }
-}
-
-@media screen and (max-width: 640px) {
-  .Index-theme {
-    font-size: 0.8em;
-  }
-}
-
 .Index-pieces {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
+  padding: 0 2rem;
 }
 
 @media screen and (max-width: 640px) {

@@ -19,77 +19,11 @@
             flex-wrap: wrap;
         }
     }
-    &-months {
-        padding: var(--gutter);
-        display: flex;
-        flex-direction: column;
-        gap: 6rem;
-    }
-    &-month {
-        display: flex;
-        gap: 1em;
-        justify-content: space-between;
-        &-date {
-            order: 2;
-            flex: 0 0 auto;
-            line-height: 1;
-            &-h {
-                writing-mode: vertical-rl;
-                display: block;
-                position: sticky;
-                top: 1em;
-                text-transform: uppercase;
-                font-size: 3em;
-                @media screen and (max-width: 640px) {
-                    font-size: 2em;
-                }
-            }
-        }
-    }
-    &-list {
-        display: flex;
-        // justify-content: center;
-        flex-wrap: wrap;
-        gap: 4rem;
-        margin: 0 auto;
-        @media screen and (max-width: 1280px) {
-            justify-content: flex-start;
-        }
-        @media screen and (max-width: 640px) {
-            gap: 2rem;
-        }
-    }
-    &-theme {
-        flex: 0 1 auto;
-        border-left: 2px solid $theme-secondary;
-        padding-left: 1em;
-        &-heading {
-            margin-bottom: 0.5em;
-        }
-        &-week {
-            font-size: 2.2em;
-            line-height: 1;
-            text-transform: uppercase;
-        }
-        &-name {
-            font-size: 3em;
-            line-height: 1;
-            margin-top: -0.4em;
-            padding-left: 0.5em;
-            color: $theme-primary;
-            font-family: 'Dancing Script', serif;
-        }
-        @media screen and (max-width: 970px) {
-            font-size: 0.9em;
-        }
-        @media screen and (max-width: 640px) {
-            font-size: 0.8em;
-        }
-    }
     &-pieces {
         display: flex;
         flex-wrap: wrap;
         gap: 2rem;
+        padding: 0 2rem;
         @media screen and (max-width: 640px) {
             gap: 1rem;
             > * {
