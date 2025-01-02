@@ -21,6 +21,7 @@ return new class extends Migration
         Schema::create('aiwork_piece', function (Blueprint $table) {
             $table->ulid('id')->primary();
             $table->string('name');
+            $table->datetime('date');
             $table->string('slug')->unique()->index();
             $table->text('description')->nullable();
             $table->string('image');
