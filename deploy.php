@@ -13,7 +13,9 @@ set('repository', 'git@github.com:dan-powell/autumnrain.git');
 set('git_tty', true);
 
 // Shared files/dirs between deploys
-add('shared_files', []);
+add('shared_files', [
+    'database/database.sqlite'
+]);
 add('shared_dirs', [
 	'public/storage'
 ]);
@@ -56,11 +58,20 @@ task('files:clean', function () {
 	}
 })->desc('Removes server-side files that do not exist locally.');
 
+
+task('database:pull', function () {
+	download(get('deploy_path') . '/shared/database/database.sqlite', 'database/database.sqlite');
+})->desc('Copies server database to local.');
+
+task('database:push', function () {
+	upload('database/database.sqlite', get('deploy_path') . '/shared/database/database.sqlite');
+})->desc('Copies local database to server.');
+
 // [Optional] if deploy fails automatically unlock.
 after('deploy:failed', 'deploy:unlock');
 
 // Disable database migrations (because we don't use a DB)
-#task('artisan:migrate')->disable();
+task('artisan:migrate')->disable();
 
 // Deploy files.
 before('deploy:symlink', 'files:push');
