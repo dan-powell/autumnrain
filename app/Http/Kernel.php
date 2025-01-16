@@ -59,6 +59,10 @@ class Kernel extends HttpKernel
             SubstituteBindings::class,
         ],
 
+        'media' => [
+            SubstituteBindings::class,
+        ],
+
         'api' => [
             'throttle:60,1',
             'bindings',

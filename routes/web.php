@@ -77,18 +77,7 @@ Route::domain('{project}.' . config('app.domain'))->name('project.')->group(func
 
     Route::get('sitemap.xml', ['as' => 'sitemap.xml', 'uses' => 'SitemapController@xmlproject']);
 
-    Route::get(config('images.route') . '/{path}', 'ImageController@project')->where('path', '.*');
-
-    Route::get('assets/{path}', 'Project\ProjectController@asset')->where('path', '.*');
-
     // Project Pages (must be placed last)
     Route::get('/{slug}', ['as' => 'page', 'uses' => 'Project\ProjectController@page']);
 
 });
-
-
-
-Route::get('assets/{path}', 'Main\AssetController@asset')->where('path', '.*');
-
-// Images (works on any domain)
-Route::get(config('images.route') . '/{path}', 'ImageController@show')->where('path', '.*');
