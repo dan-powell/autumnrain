@@ -1,7 +1,7 @@
 @extends('projects.pico8.base')
 
 @section('meta')
-    <title>Pico 8 Games by Dan Powell</title>
+    <title>Pico 8 Games</title>
     <meta name="description" content="A collection of games I've created for the PICO-8 virtual console">
 @stop
 

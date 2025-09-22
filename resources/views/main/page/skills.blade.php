@@ -1,7 +1,7 @@
 @extends('main.base')
 
 @section('meta')
-<title>Skills | Dan Powell website designer</title>
+<title>Skills website designer</title>
 <meta name="description" content="I utilise hand-drawn sketches, concept drawings, wireframes and full multi-page design comprehensives to create effective websites.">
 @stop
 

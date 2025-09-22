@@ -1,7 +1,7 @@
 @extends('projects.aiwork.base')
 
 @section('meta')
-    <title>Exploring AI Art - Dan Powell Design</title>
+    <title>Exploring AI Art</title>
     <meta name="description" content="">
 @stop
 

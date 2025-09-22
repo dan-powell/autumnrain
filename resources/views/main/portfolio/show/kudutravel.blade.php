@@ -1,8 +1,8 @@
 @extends('main.portfolio.show')
 
 @section('meta')
-    <title>Kudu Travel Website Design by Dan Powell</title>
-    <meta name="description" content="A new website design for Kudu Travel, designed by Dan Powell at Webbed Feet UK">
+    <title>Kudu Travel Website Design</title>
+    <meta name="description" content="A new website design for Kudu Travel">
 @stop
 
 @section('content')

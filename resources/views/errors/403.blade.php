@@ -1,7 +1,7 @@
 @extends('main.base')
 
 @section('meta')
-<title>Permission Denied | Dan Powell</title>
+<title>Permission Denied</title>
 <meta name="description" content="403 Error - Permission Denied">
 @stop
 

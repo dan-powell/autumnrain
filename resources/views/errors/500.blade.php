@@ -1,7 +1,7 @@
 @extends('main.base')
 
 @section('meta')
-<title>Internal Error | Dan Powell</title>
+<title>Internal Error</title>
 <meta name="description" content="500 Error - Internal Error">
 @stop
 

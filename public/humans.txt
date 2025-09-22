@@ -1,7 +1,5 @@
 
 /* MAIN */
-  Development & Main Design: Dan Powell
-  Github: https://github.com/dan-powell
   Site: http://autumnrain.uk
 
 /* SITE */

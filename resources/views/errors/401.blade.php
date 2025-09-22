@@ -1,7 +1,7 @@
 @extends('main.base')
 
 @section('meta')
-<title>Forbidden | Dan Powell</title>
+<title>Forbidden</title>
 <meta name="description" content="401 Error - Forbidden">
 @stop
 

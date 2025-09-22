@@ -1,7 +1,7 @@
 @extends('main.base')
 
 @section('meta')
-<title>Not Found | Dan Powell</title>
+<title>Not Found</title>
 <meta name="description" content="404 Error - Resource not found">
 @stop
 

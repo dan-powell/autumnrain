@@ -1,7 +1,7 @@
 @extends('main.base')
 
 @push('head')
-<title>My Projects | Dan Powell</title>
+<title>My Projects</title>
 <meta name="description" content="Here's a selection of my best work.">
 @endpush
 

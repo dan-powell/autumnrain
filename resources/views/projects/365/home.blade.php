@@ -1,7 +1,7 @@
 @extends('projects.365.base')
 
 @section('meta')
-    <title>Three Six Five Twenty Ten by Dan Powell</title>
+    <title>Three Six Five Twenty Ten</title>
     <meta name="description" content="I decided to challenge myself to create a single piece of creative work every day for a whole year.">
 @stop
 

@@ -1,7 +1,7 @@
 @extends('projects.fungifalls.base')
 
 @section('meta')
-    <title>Fungi Falls by Dan Powell</title>
+    <title>Fungi Falls</title>
     <meta name="description" content="An HTML5 + Javascript in-browser game demo">
 @stop
 

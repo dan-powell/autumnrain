@@ -90,13 +90,6 @@
                     </svg>
                     <span class="Sidebar-about-link-text">Projects</span>
                 </a>
-                <p class="Sidebar-about-text Sidebar-about-text--more">view my professional</p>
-                <a class="Sidebar-about-link" href="{{ route('home-pro') }}">
-                    <svg class="Sidebar-about-link-icon" viewBox="0 0 512 512">
-                        <use xlink:href="{{ asset('img/sidebar/icons.svg#projects') }}"></use>
-                    </svg>
-                    <span class="Sidebar-about-link-text">Profile</span>
-                </a>
             </div>
         </div>
     </div>

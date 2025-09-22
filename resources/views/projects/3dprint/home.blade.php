@@ -1,7 +1,7 @@
 @extends('projects.3dprint.base')
 
 @section('meta')
-    <title>Adventures in 3D Printing - Dan Powell Design</title>
+    <title>Adventures in 3D Printing</title>
     <meta name="description" content="Having fun with 3D printing, designing and creating my own stuff">
 @stop
 

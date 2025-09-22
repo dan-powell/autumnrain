@@ -1,7 +1,7 @@
 @extends('main.base')
 
 @section('meta')
-    <title>Experience | Dan Powell</title>
+    <title>Experience</title>
     <meta name="description" content="My Curriculum Vitae, capabilities and employment history.">
 @stop
 

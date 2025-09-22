@@ -9,7 +9,7 @@
 
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <title>Down for Maintenance | Dan Powell</title>
+    <title>Down for Maintenance</title>
     <meta name="description" content="Down for Maintenance">
     <link type="text/plain" rel="author" href="/humans.txt">
     <meta name="viewport" content="width=device-width,initial-scale=1">

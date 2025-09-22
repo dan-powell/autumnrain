@@ -1,7 +1,7 @@
 @extends('main.base')
 
 @section('meta')
-<title>My Portfolio | Dan Powell</title>
+<title>My Portfolio</title>
 <meta name="description" content="Here's a selection of my best work.">
 @stop
 

@@ -1,7 +1,7 @@
 @extends('main.base')
 
 @section('meta')
-<title>Privacy Policy | Dan Powell</title>
+<title>Privacy Policy</title>
 <meta name="description" content="Privacy policy and terms of use">
 @stop
 

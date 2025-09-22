@@ -1,7 +1,7 @@
 @extends('projects.aiwork.base')
 
 @section('meta')
-    <title>{{ $piece->name }} - AiWork - Dan Powell Design</title>
+    <title>{{ $piece->name }} - AiWork</title>
     <meta name="description" content="{{ $piece->description ?? '' }}">
 @stop
 
