@@ -1,0 +1,40 @@
+.Pagination {
+    padding: 0.5em;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5em;
+}
+.Pagination > * {
+    margin: 0;
+    padding: 0;
+    flex: 0 1 auto;
+}
+.Pagination a,
+.Pagination span {
+    border-width: 2px;
+    border-style: solid;
+    width: 3em;
+    height: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+.Pagination span {
+    border-color: var(--text-color);
+}
+.Pagination a {
+    border-color: var(--theme-primary);
+}
+.Pagination a:hover {
+    background: var(--theme-primary);
+    color: var(--theme-bg);
+}
+.Pagination li.is-active a,
+.Pagination li.is-active span {
+    border-color: var(--theme-secondary);
+    background: var(--theme-secondary);
+    color: var(--theme-bg);
+}

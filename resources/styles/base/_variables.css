@@ -1,0 +1,42 @@
+:root {
+  --theme-primary: #ed913d;
+  --theme-secondary: #4D78C9;
+  --theme-tertiary: #5AC49F;
+
+  --theme-neutral: #BFBFBF;
+  --theme-bg: #EFEBE5;
+
+  --font-size-base-lg: 20px;
+  --font-size-base-md: 18px;
+  --font-size-base-sm: 16px;
+  --font-size-base: var(--font-size-base-md);
+
+  /* Set a ratio for headings and other bits of typography */
+  --headingRatio: 1.2;
+  /* Golden Ratio = 1.618 */
+  /* A More sensible ratio is 1.2 */
+  --h6: 1em;
+  --h5: var(--h6);
+  --h4: calc(var(--h5) * var(--headingRatio));
+  --h3: calc(var(--h4) * var(--headingRatio));
+  --h2: calc(var(--h3) * var(--headingRatio));
+  --h1: calc(var(--h2) * var(--headingRatio));
+
+  --font-family: 'Lato', serif;
+  --font-family-heading: 'Nunito', serif;
+  --font-family-serif: 'Caveat', Georgia, serif;
+
+  --heading-color: #555;
+  --text-color: #333;
+  --link-color: var(--theme-primary);
+
+  --spacer: 30px;
+
+  --max-width: 1170px;
+
+  --screen-xl: 1440px;
+  --screen-lg: 1280px;
+  --screen-md: 1024px;
+  --screen-sm: 640px;
+  --screen-xs: 480px;
+}
