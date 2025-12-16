@@ -1,3 +1,5 @@
+@import "glightbox/dist/css/glightbox.css";
+
 :root {
     --theme-primary: #ed913d;
     --theme-secondary: #4D78C9;
@@ -11,8 +13,10 @@
     --text-color: #fff;
     --link-color: #876;
 
-    --font-family: 'Quicksand', sans-serif;
+    --font-family: 'Arial', sans-serif;
+    --font-family-heading: 'Roboto Slab', sans-serif;
 
+    --max-width: 1170px;
     --screen-xl: 1440px;
     --screen-lg: 1280px;
     --screen-md: 1024px;
@@ -20,23 +24,7 @@
     --screen-xs: 480px;
 }
 
-/* Override base styles */
+@import "elements";
 
-body {
-    background: var(--theme-bg);
-    color: var(--text-color);
-    font-family: var(--font-family);
-}
-
-p {
-
-}
-
-a {
-    color: var(--link-color);
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-family);
-}
-
+@import "home";
+@import "gallery";

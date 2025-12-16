@@ -21,22 +21,22 @@
 }
 
 /* Override base styles */
-
 body {
     background: var(--theme-bg);
     color: var(--text-color);
     font-family: var(--font-family);
 }
-
 p {
 
 }
-
 a {
     color: var(--link-color);
 }
-
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-family);
 }
 
+@import "mixins";
+@import "utilities";
+@import "elements";
+@import "home";

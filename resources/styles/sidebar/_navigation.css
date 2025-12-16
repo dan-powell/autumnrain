@@ -1,0 +1,72 @@
+.Sidebar .Nav-root,
+.Sidebar .Nav-sub,
+.Sidebar .Nav-item {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.Sidebar .Nav-sub {
+  margin-left: 2.5em;
+}
+.Sidebar .Nav-sub .Nav-link {
+  background: url("/img/sidebar/sub.svg") center left no-repeat;
+  padding-left: 2.5em;
+}
+.Sidebar .Nav-link {
+  display: flex;
+  align-items: center;
+  padding: 0 0.25em;
+  position: relative;
+  color: #E2DACC;
+  font-weight: 300;
+  opacity: 0;
+}
+.Sidebar .Nav-link-inner {
+  display: block;
+  padding: 0.3em 0.5em;
+  transition: transform 0.2s ease-in 0.2s;
+  font-size: 1.6em;
+}
+.Sidebar .Nav-link-label {
+  transition: opacity 0.2s ease-out;
+}
+.Sidebar .Nav-link-description {
+  display: block;
+  font-family: "caveat", cursive;
+  font-size: 0.8em;
+  text-transform: lowercase;
+}
+.Sidebar .Nav-link-icon {
+  flex: 0 0 auto;
+  width: 3.5em;
+  padding: 0.75em;
+  fill: #E2DACC;
+  stroke-width: 0.5em;
+  stroke: transparent;
+  background: url("/img/sidebar/hexagon.svg") center center no-repeat;
+  background-size: 100%;
+  transition: all 0.2s ease-in-out;
+}
+.Sidebar .Nav-link:focus,
+.Sidebar .Nav-link:hover {
+  color: #DC8E33;
+}
+.Sidebar .Nav-link:focus .Nav-link-icon,
+.Sidebar .Nav-link:hover .Nav-link-icon {
+  fill: transparent;
+  stroke: #E2DACC;
+}
+.Sidebar .Nav-link:focus .Nav-link-label,
+.Sidebar .Nav-link:hover .Nav-link-label {
+  stroke: #DC8E33;
+  text-decoration: none;
+}
+@media screen and (max-width: 480px) {
+  .Sidebar .Nav-link-icon {
+    width: 2.5em;
+    padding: 0.5em;
+  }
+  .Sidebar .Nav-link-inner {
+    font-size: 1.2em;
+  }
+}

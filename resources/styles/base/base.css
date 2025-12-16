@@ -1,11 +1,10 @@
-@import "variables";
+@import "_variables";
 
-@import "utilities/layout";
-@import "utilities/text";
-@import "utilities/visibility";
-@import "utilities/content";
-// @import "utilities/grid";
+@import "utilities/_layout";
+@import "utilities/_text";
+@import "utilities/_visibility";
+@import "utilities/_content";
 
-@import "elements";
+@import "_elements";
 
-@import "components/pagination";
+@import "components/_pagination";

@@ -1,20 +1,18 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["/js/main"],{
+(self["webpackChunk"] = self["webpackChunk"] || []).push([["/js/main"],{
 
-/***/ "./resources/scripts/main/_home.js":
+/***/ "./resources/scripts/main/_home.js"
 /*!*****************************************!*\
   !*** ./resources/scripts/main/_home.js ***!
   \*****************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var animejs_lib_anime_es_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! animejs/lib/anime.es.js */ "./node_modules/animejs/lib/anime.es.js");
 
-
 (function () {
   // BG Animation
-  Object(animejs_lib_anime_es_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+  (0,animejs_lib_anime_es_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
     targets: '.HomeAbout-bg circle',
     loop: true,
     opacity: [{
@@ -50,16 +48,16 @@ __webpack_require__.r(__webpack_exports__);
       easing: 'easeOutQuad'
     })
   });
-  var hero = []; // Define the timeline
-
+  var hero = [];
+  // Define the timeline
   hero[0] = animejs_lib_anime_es_js__WEBPACK_IMPORTED_MODULE_0__["default"].timeline({
     loop: false,
     autoplay: false,
     complete: function complete(anim) {
       hero[1].play();
     }
-  }); // Add children
-
+  });
+  // Add children
   hero[0].add({
     targets: ['.HomeHeroBg-one .box'],
     strokeDashoffset: [animejs_lib_anime_es_js__WEBPACK_IMPORTED_MODULE_0__["default"].setDashoffset, 0],
@@ -89,16 +87,17 @@ __webpack_require__.r(__webpack_exports__);
     opacity: [1, 0],
     duration: 2000,
     easing: 'easeInOutSine'
-  }, "-=2000"); // Define the timeline
+  }, "-=2000");
 
+  // Define the timeline
   hero[1] = animejs_lib_anime_es_js__WEBPACK_IMPORTED_MODULE_0__["default"].timeline({
     loop: false,
     autoplay: false,
     complete: function complete(anim) {
       hero[2].play();
     }
-  }); // Add children
-
+  });
+  // Add children
   hero[1].add({
     targets: ['.HomeHeroBg-two .HomeHeroBg-boxes .box'],
     strokeDashoffset: [animejs_lib_anime_es_js__WEBPACK_IMPORTED_MODULE_0__["default"].setDashoffset, 0],
@@ -128,16 +127,17 @@ __webpack_require__.r(__webpack_exports__);
     opacity: [1, 0],
     duration: 2000,
     easing: 'easeInOutSine'
-  }, "-=2000"); // Define the timeline
+  }, "-=2000");
 
+  // Define the timeline
   hero[2] = animejs_lib_anime_es_js__WEBPACK_IMPORTED_MODULE_0__["default"].timeline({
     loop: false,
     autoplay: false,
     complete: function complete(anim) {
       hero[0].play();
     }
-  }); // Add children
-
+  });
+  // Add children
   hero[2].add({
     targets: ['.HomeHeroBg-three .HomeHeroBg-boxes .box'],
     strokeDashoffset: [animejs_lib_anime_es_js__WEBPACK_IMPORTED_MODULE_0__["default"].setDashoffset, 0],
@@ -168,21 +168,21 @@ __webpack_require__.r(__webpack_exports__);
     duration: 2000,
     easing: 'easeInOutSine'
   }, "-=2000");
-
   function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
   }
+  hero[getRandomInt(3)].play();
 
-  hero[getRandomInt(3)].play(); // Animate items when visible
+  // Animate items when visible
+
   // Check if IntersectionObserver is supported
-
   if ('IntersectionObserver' in window) {
     var body = document.getElementsByTagName('body');
     body[0].classList.add('supports-observer');
   }
+  ;
 
-  ; // Setup the observer
-
+  // Setup the observer
   var intersectionObserver = new IntersectionObserver(function (entries, observer) {
     entries.forEach(function (entry) {
       if (entry.intersectionRatio > 0) {
@@ -191,150 +191,137 @@ __webpack_require__.r(__webpack_exports__);
         entry.target.classList.remove('is-visible');
       }
     });
-  }); // Get the items to animate
+  });
 
-  var elements = document.querySelectorAll(['.PortfolioExcerpt', '.ProjectExcerpt']); // Fire up the observer
+  // Get the items to animate
+  var elements = document.querySelectorAll(['.PortfolioExcerpt', '.ProjectExcerpt']);
 
+  // Fire up the observer
   elements.forEach(function (element) {
     return intersectionObserver.observe(element);
   });
 })();
 
-/***/ }),
+/***/ },
 
-/***/ "./resources/scripts/main/_projects.js":
+/***/ "./resources/scripts/main/_projects.js"
 /*!*********************************************!*\
   !*** ./resources/scripts/main/_projects.js ***!
   \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+() {
 
 
 
-/***/ }),
+/***/ },
 
-/***/ "./resources/scripts/main/base.js":
+/***/ "./resources/scripts/main/base.js"
 /*!****************************************!*\
   !*** ./resources/scripts/main/base.js ***!
   \****************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var animejs_lib_anime_es_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! animejs/lib/anime.es.js */ "./node_modules/animejs/lib/anime.es.js");
 
 
-/***/ }),
+/***/ },
 
-/***/ "./resources/styles/base/base.scss":
-/*!*****************************************!*\
-  !*** ./resources/styles/base/base.scss ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "./resources/styles/base/base.css"
+/*!****************************************!*\
+  !*** ./resources/styles/base/base.css ***!
+  \****************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-// removed by extract-text-webpack-plugin
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
 
-/***/ }),
 
-/***/ "./resources/styles/main/base.scss":
-/*!*****************************************!*\
-  !*** ./resources/styles/main/base.scss ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ },
 
-// removed by extract-text-webpack-plugin
+/***/ "./resources/styles/projects/365/base.css"
+/*!************************************************!*\
+  !*** ./resources/styles/projects/365/base.css ***!
+  \************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-/***/ }),
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
 
-/***/ "./resources/styles/projects/365/base.scss":
-/*!*************************************************!*\
-  !*** ./resources/styles/projects/365/base.scss ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
+/***/ },
 
-/***/ }),
-
-/***/ "./resources/styles/projects/3dprint/base.scss":
-/*!*****************************************************!*\
-  !*** ./resources/styles/projects/3dprint/base.scss ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ "./resources/styles/projects/aiwork/base.scss":
+/***/ "./resources/styles/projects/3dprint/base.css"
 /*!****************************************************!*\
-  !*** ./resources/styles/projects/aiwork/base.scss ***!
+  !*** ./resources/styles/projects/3dprint/base.css ***!
   \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-// removed by extract-text-webpack-plugin
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
 
-/***/ }),
 
-/***/ "./resources/styles/projects/fungifalls/base.scss":
-/*!********************************************************!*\
-  !*** ./resources/styles/projects/fungifalls/base.scss ***!
-  \********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ },
 
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ "./resources/styles/projects/pico8/base.scss":
+/***/ "./resources/styles/projects/aiwork/base.css"
 /*!***************************************************!*\
-  !*** ./resources/styles/projects/pico8/base.scss ***!
+  !*** ./resources/styles/projects/aiwork/base.css ***!
   \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ "./resources/styles/sidebar/base.scss":
-/*!********************************************!*\
-  !*** ./resources/styles/sidebar/base.scss ***!
-  \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 0:
-/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** multi ./resources/scripts/main/base.js ./resources/scripts/main/_home.js ./resources/scripts/main/_projects.js ./resources/styles/base/base.scss ./resources/styles/main/base.scss ./resources/styles/sidebar/base.scss ./resources/styles/projects/365/base.scss ./resources/styles/projects/fungifalls/base.scss ./resources/styles/projects/pico8/base.scss ./resources/styles/projects/3dprint/base.scss ./resources/styles/projects/aiwork/base.scss ***!
-  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(/*! /app/resources/scripts/main/base.js */"./resources/scripts/main/base.js");
-__webpack_require__(/*! /app/resources/scripts/main/_home.js */"./resources/scripts/main/_home.js");
-__webpack_require__(/*! /app/resources/scripts/main/_projects.js */"./resources/scripts/main/_projects.js");
-__webpack_require__(/*! /app/resources/styles/base/base.scss */"./resources/styles/base/base.scss");
-__webpack_require__(/*! /app/resources/styles/main/base.scss */"./resources/styles/main/base.scss");
-__webpack_require__(/*! /app/resources/styles/sidebar/base.scss */"./resources/styles/sidebar/base.scss");
-__webpack_require__(/*! /app/resources/styles/projects/365/base.scss */"./resources/styles/projects/365/base.scss");
-__webpack_require__(/*! /app/resources/styles/projects/fungifalls/base.scss */"./resources/styles/projects/fungifalls/base.scss");
-__webpack_require__(/*! /app/resources/styles/projects/pico8/base.scss */"./resources/styles/projects/pico8/base.scss");
-__webpack_require__(/*! /app/resources/styles/projects/3dprint/base.scss */"./resources/styles/projects/3dprint/base.scss");
-module.exports = __webpack_require__(/*! /app/resources/styles/projects/aiwork/base.scss */"./resources/styles/projects/aiwork/base.scss");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
 
 
-/***/ })
+/***/ },
 
-},[[0,"/js/manifest","/js/vendor"]]]);
+/***/ "./resources/styles/projects/fungifalls/base.css"
+/*!*******************************************************!*\
+  !*** ./resources/styles/projects/fungifalls/base.css ***!
+  \*******************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ },
+
+/***/ "./resources/styles/projects/pico8/base.css"
+/*!**************************************************!*\
+  !*** ./resources/styles/projects/pico8/base.css ***!
+  \**************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ },
+
+/***/ "./resources/styles/sidebar/base.css"
+/*!*******************************************!*\
+  !*** ./resources/styles/sidebar/base.css ***!
+  \*******************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }
+
+},
+/******/ __webpack_require__ => { // webpackRuntimeModules
+/******/ var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
+/******/ __webpack_require__.O(0, ["css/projects/pico8","css/projects/fungifalls","css/projects/365","css/sidebar","css/base","css/projects/aiwork","css/projects/3dprint","/js/vendor"], () => (__webpack_exec__("./resources/scripts/main/base.js"), __webpack_exec__("./resources/scripts/main/_home.js"), __webpack_exec__("./resources/scripts/main/_projects.js"), __webpack_exec__("./resources/styles/base/base.css"), __webpack_exec__("./resources/styles/sidebar/base.css"), __webpack_exec__("./resources/styles/projects/365/base.css"), __webpack_exec__("./resources/styles/projects/fungifalls/base.css"), __webpack_exec__("./resources/styles/projects/pico8/base.css"), __webpack_exec__("./resources/styles/projects/3dprint/base.css"), __webpack_exec__("./resources/styles/projects/aiwork/base.css")));
+/******/ var __webpack_exports__ = __webpack_require__.O();
+/******/ }
+]);

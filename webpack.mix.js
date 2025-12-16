@@ -16,12 +16,12 @@ if (mix.inProduction()) {
 }
 
 mix.postCss('resources/styles/base/base.css', 'public/css/base.css')
-    .sass('resources/styles/sidebar/base.scss', 'public/css/sidebar.css')
-    .sass('resources/styles/projects/365/base.scss', 'public/css/projects/365.css')
-    .sass('resources/styles/projects/fungifalls/base.scss', 'public/css/projects/fungifalls.css')
-    .sass('resources/styles/projects/pico8/base.scss', 'public/css/projects/pico8.css')
-    .sass('resources/styles/projects/3dprint/base.scss', 'public/css/projects/3dprint.css')
-    .sass('resources/styles/projects/aiwork/base.scss', 'public/css/projects/aiwork.css')
+    .postCss('resources/styles/sidebar/base.css', 'public/css/sidebar.css')
+    .postCss('resources/styles/projects/365/base.css', 'public/css/projects/365.css')
+    .postCss('resources/styles/projects/fungifalls/base.css', 'public/css/projects/fungifalls.css')
+    .postCss('resources/styles/projects/pico8/base.css', 'public/css/projects/pico8.css')
+    .postCss('resources/styles/projects/3dprint/base.css', 'public/css/projects/3dprint.css')
+    .postCss('resources/styles/projects/aiwork/base.css', 'public/css/projects/aiwork.css')
     .options({
         postCss: [
             require('postcss-import'),

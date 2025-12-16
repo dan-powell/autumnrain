@@ -1,0 +1,47 @@
+@import "glightbox/dist/css/glightbox.css";
+
+:root {
+    --theme-primary: #b6da91;
+    --theme-secondary: #6db691;
+    --theme-tertiary: #6d486d;
+
+    --theme-bg: var(--theme-tertiary);
+
+    --theme-positive: #fff;
+    --theme-negative: #111;
+
+    --text-color: #000;
+    --link-color: var(--theme-primary);
+
+    --font-family: 'VT323', sans-serif;
+    --font-family-heading: 'Press Start 2P', sans-serif;
+
+    --max-width: 920px;
+    --screen-xl: 1440px;
+    --screen-lg: 1280px;
+    --screen-md: 1024px;
+    --screen-sm: 640px;
+    --screen-xs: 480px;
+}
+
+/* Override base styles */
+body {
+    background: var(--theme-bg);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    line-height: normal;
+}
+p {
+    line-height: 1;
+}
+a {
+    color: var(--link-color);
+    &:hover {
+        color: var(--theme-tertiary);
+    }
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-heading);
+}
+
+@import "home";
