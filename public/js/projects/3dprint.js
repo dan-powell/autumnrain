@@ -1,28 +1,28 @@
-"use strict";
-(self["webpackChunk"] = self["webpackChunk"] || []).push([["/js/projects/3dprint"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["/js/projects/3dprint"],{
 
-/***/ "./resources/scripts/projects/3dprint/base.js"
+/***/ "./resources/scripts/projects/3dprint/base.js":
 /*!****************************************************!*\
   !*** ./resources/scripts/projects/3dprint/base.js ***!
   \****************************************************/
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var animejs_lib_anime_es_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! animejs/lib/anime.es.js */ "./node_modules/animejs/lib/anime.es.js");
-
-
-// Helper to split titles in to individual letters
+ // Helper to split titles in to individual letters
 
 var textWrappers = document.querySelectorAll(['.js-anime-small', '.js-anime-title', '.js-anime-sub']);
+
 for (var x = 0; x < textWrappers.length; x++) {
   textWrappers[x].innerHTML = textWrappers[x].textContent.replace(/\S/g, "<span class='js-anime-span'>$&</span>");
-}
+} // Intro
 
-// Intro
+
 var timeline_intro = animejs_lib_anime_es_js__WEBPACK_IMPORTED_MODULE_0__["default"].timeline({
   autoplay: false,
   complete: function complete(anim) {
-    (0,animejs_lib_anime_es_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    Object(animejs_lib_anime_es_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
       targets: '.js-anime-icon',
       translateY: '-20px',
       direction: 'alternate',
@@ -68,11 +68,9 @@ var timeline_intro = animejs_lib_anime_es_js__WEBPACK_IMPORTED_MODULE_0__["defau
   duration: 600,
   loop: true,
   direction: 'alternate'
-}, "-=1000");
-
-// Setup observer
-
+}, "-=1000"); // Setup observer
 // Check if we have support for observers...
+
 if ('IntersectionObserver' in window && 'IntersectionObserverEntry' in window && 'intersectionRatio' in window.IntersectionObserverEntry.prototype) {
   var observer_title = new IntersectionObserver(function (entry) {
     if (entry.intersectionRatio > 0) {
@@ -85,9 +83,9 @@ if ('IntersectionObserver' in window && 'IntersectionObserverEntry' in window &&
 } else {
   //no support, just play animation
   timeline_intro.play();
-}
+} // Generic observer for animations on scroll
 
-// Generic observer for animations on scroll
+
 var observer = new IntersectionObserver(function (entries) {
   entries.forEach(function (entry) {
     if (entry.intersectionRatio > 0) {
@@ -96,11 +94,10 @@ var observer = new IntersectionObserver(function (entries) {
       entry.target.tl.seek(0);
     }
   });
-});
+}); // Fade in animations
 
-// Fade in animations
-var el_fades = document.querySelectorAll('.js-anime-fade');
-// intialise observers
+var el_fades = document.querySelectorAll('.js-anime-fade'); // intialise observers
+
 el_fades.forEach(function (el) {
   el.tl = animejs_lib_anime_es_js__WEBPACK_IMPORTED_MODULE_0__["default"].timeline({
     autoplay: false
@@ -114,11 +111,10 @@ el_fades.forEach(function (el) {
     }
   });
   observer.observe(el);
-});
+}); // Drop in animations
 
-// Drop in animations
-var el_drops = document.querySelectorAll('.js-anime-drop');
-// intialise observers
+var el_drops = document.querySelectorAll('.js-anime-drop'); // intialise observers
+
 el_drops.forEach(function (el) {
   el.tl = animejs_lib_anime_es_js__WEBPACK_IMPORTED_MODULE_0__["default"].timeline({
     autoplay: false
@@ -136,8 +132,8 @@ el_drops.forEach(function (el) {
   });
   observer.observe(el);
 });
-var el_zooms = document.querySelectorAll('.js-anime-zoom');
-// intialise observers
+var el_zooms = document.querySelectorAll('.js-anime-zoom'); // intialise observers
+
 el_zooms.forEach(function (el) {
   el.tl = animejs_lib_anime_es_js__WEBPACK_IMPORTED_MODULE_0__["default"].timeline({
     autoplay: false
@@ -154,12 +150,18 @@ el_zooms.forEach(function (el) {
   observer.observe(el);
 });
 
-/***/ }
+/***/ }),
 
-},
-/******/ __webpack_require__ => { // webpackRuntimeModules
-/******/ var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-/******/ __webpack_require__.O(0, ["/js/vendor"], () => (__webpack_exec__("./resources/scripts/projects/3dprint/base.js")));
-/******/ var __webpack_exports__ = __webpack_require__.O();
-/******/ }
-]);
+/***/ 3:
+/*!**********************************************************!*\
+  !*** multi ./resources/scripts/projects/3dprint/base.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! /app/resources/scripts/projects/3dprint/base.js */"./resources/scripts/projects/3dprint/base.js");
+
+
+/***/ })
+
+},[[3,"/js/manifest","/js/vendor"]]]);

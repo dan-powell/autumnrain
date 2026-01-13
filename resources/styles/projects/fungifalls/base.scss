@@ -1,0 +1,44 @@
+@import "~glightbox/dist/css/glightbox.css";
+
+$theme-primary: #b0262a;
+$theme-secondary: #d4a875;
+$theme-tertiary: #6fa134;
+
+$theme-bg: $theme-secondary;
+
+$theme-positive: #fff;
+$theme-negative: #111;
+
+$text-color: #000;
+$link-color: $theme-primary;
+
+$font-family: 'Arial', sans-serif;
+$font-family-heading: 'Corben', sans-serif;
+
+$max-width: 920px;
+$screen-xl: 1440px;
+$screen-lg: 1280px;
+$screen-md: 1024px;
+$screen-sm: 640px;
+$screen-xs: 480px;
+
+// Override base styles
+body {
+    background: $theme-bg;
+    color: $text-color;
+    font-family: $font-family;
+}
+p {
+
+}
+a {
+    color: $link-color;
+    &:hover {
+        color: $theme-tertiary;
+    }
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: $font-family-heading;
+}
+
+@import "home";

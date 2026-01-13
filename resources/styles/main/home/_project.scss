@@ -1,0 +1,121 @@
+// Positioning
+.HomeProject {
+    display: grid;
+    grid-gap: 0;
+    grid-template-areas:
+        "project character speech";
+    grid-template-columns: 2fr 1fr 2fr;
+    grid-template-rows: 1fr;
+    min-height: 40vh;
+    &-project {
+        grid-area: project;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1em;
+        margin: 0;
+    }
+    &-character {
+        grid-area: character;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        &-img {
+            width: 100%;
+            max-width: 320px;
+            display: block;
+        }
+    }
+    &-speech {
+        grid-area: speech;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        &-inner {
+            display: block;
+            padding: 1em;
+        }
+        &-bubble {
+            display: inline-block;
+            padding: .5em 1em;
+        }
+    }
+    @media screen and (max-width: $screen-lg) {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    @media screen and (max-width: $screen-md) {
+        min-height: auto;
+        grid-template-areas:
+            "project speech"
+            "project character";
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        &-character {
+            justify-content: center;
+        }
+        &-speech {
+            align-items: flex-end;
+            justify-content: flex-end;
+        }
+    }
+    @media screen and (max-width: $screen-sm) {
+        grid-template-areas:
+            "project"
+            "speech"
+            "character";
+        grid-template-columns: 1fr;
+        &-character {
+            justify-content: flex-end;
+            &-img {
+                padding-right: 3rem;
+            }
+        }
+        &-speech {
+            justify-content: center;
+        }
+    }
+}
+
+// Styling
+.HomeProject {
+    background: linear-gradient(0deg, rgba(255,255,255,1), rgba(255,255,255,0));
+    &-speech {
+        animation: slideInFromTop 1s ease-in-out .4s 1;
+        animation-fill-mode: both;
+        &-inner {
+            background: url('/img/home/speech.svg') left bottom no-repeat;
+            background-size: 50% 50%;
+        }
+        &-bubble {
+            background: #fff;
+            border-radius: 100%;
+            box-shadow: rgba(0, 0, 0, 0.2) 4px 0 3px;
+            font-family: $font-family-serif;
+            text-align: center;
+            line-height: 1;
+            color: rgba(0, 0, 0, 0.6);
+            font-size: 2.5em;
+        }
+    }
+    &-character {
+        animation: slideInFromBottom 1s ease-in-out .6s 1;
+        animation-fill-mode: both;
+    }
+    @media screen and (max-width: $screen-md) {
+        &-speech {
+            &-inner {
+                padding-bottom: 2em;
+                background-image: url('/img/home/speech3.svg');
+                background-position: center bottom;
+                background-size: 50% 50%;
+            }
+        }
+    }
+    @media screen and (max-width: $screen-sm) {
+        &-character {
+            &-img {
+                transform: rotateZ(10deg) translateY(1.5em) translateX(-0.5em);
+            }
+        }
+    }
+}

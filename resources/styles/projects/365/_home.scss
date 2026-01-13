@@ -1,0 +1,107 @@
+.Home {
+    &-header {
+        padding: 2em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        min-height: 50vh;
+        background: url('/assets/heading_bg.jpg') center repeat;
+        text-align: center;
+        &-img {
+
+        }
+        &-large {
+            font-weight: 300;
+            font-size: 10vw;
+            @media screen and (max-width: $screen-sm) {
+                font-size: 4rem;
+            }
+        }
+        &-title {
+            color: #fff;
+            padding: 1em 2em;
+        }
+    }
+    &-strap {
+        max-width: $max-width;
+        margin-left: auto;
+        margin-right: auto;
+        &-title {
+            padding: 1em;
+            font-size: 2.4rem;
+            text-align: center;
+        }
+    }
+    &-description {
+        max-width: $max-width;
+        margin-left: auto;
+        margin-right: auto;
+        p {
+            margin-bottom: 1em;
+        }
+    }
+    &-row {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0 1em;
+    }
+    &-intro {
+        flex: 1 1 33%;
+        padding: 1em;
+    }
+    &-about {
+        flex: 1 1 66%;
+        padding: 1em;
+    }
+    @media screen and (max-width: $screen-sm) {
+        &-intro {
+            flex: 1 1 100%;
+        }
+        &-about {
+            flex: 1 1 100%;
+        }
+    }
+    &-cta {
+        display: flex;
+        padding: .5em 1em;
+        margin: 0 auto;
+        background: $theme-primary;
+        color: $theme-negative;
+        justify-content: center;
+        align-items: center;
+        font-family: $font-family-heading;
+        &-icon {
+            fill: $theme-negative;
+            flex: 0 1 40px;
+            margin-left: 1em;
+        }
+        &:hover, &:active {
+            background: $theme-secondary;
+        }
+    }
+    &-gallery {
+        &-title {
+            font-size: 1.6rem;
+            text-align: center;
+            padding: 1em;
+        }
+    }
+    &-preview {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        &-item {
+            display: block;
+            flex: 0 1 320px;
+            padding: 1em;
+            transition: all .2s ease-out;
+            &:hover {
+                transform: scale(1.2) rotateZ(10deg);
+            }
+        }
+        &-img {
+
+        }
+    }
+}

@@ -1,0 +1,168 @@
+// Positioning
+.HomeIntro {
+    display: grid;
+    grid-gap: 0;
+    grid-template-areas:
+        "wave speech heading";
+    grid-template-columns: 1fr 1fr 2fr;
+    grid-template-rows: 1fr;
+    padding-top: 2em;
+    min-height: 40vh;
+    &-wave {
+        grid-area: wave;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        &-img {
+            width: 100%;
+            max-width: 320px;
+            display: block;
+        }
+    }
+    &-speech {
+        grid-area: speech;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        &-inner {
+            display: block;
+            padding: 1em;
+        }
+        &-bubble {
+            display: inline-block;
+            padding: .5em 1em;
+        }
+    }
+    &-heading {
+        grid-area: heading;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1.2em 0.5em;
+        margin: 0;
+    }
+    @media screen and (max-width: $screen-md) {
+        grid-template-areas:
+            "speech heading"
+            "wave heading";
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: auto;
+        &-speech {
+            justify-content: flex-end
+        }
+    }
+    @media screen and (max-width: $screen-sm) {
+        grid-template-areas:
+            "heading"
+            "speech"
+            "wave";
+        grid-template-columns: 1fr;
+        &-wave {
+            &-img {
+                padding-right: 3rem;
+            }
+        }
+        &-speech {
+            justify-content: center;
+        }
+    }
+}
+
+// Look and feel
+.HomeIntro {
+    background: linear-gradient(0deg, rgba(255,255,255,1), rgba(255,255,255,0));
+    &-speech {
+        animation: slideInFromTop 1s ease-in-out .4s 1;
+        animation-fill-mode: both;
+        &-inner {
+            background: url('/img/home/speech.svg') left bottom no-repeat;
+            background-size: 50%;
+        }
+        &-bubble {
+            background: #fff;
+            border-radius: 100%;
+            box-shadow: rgba(0, 0, 0, 0.2) 4px 0 3px;
+            font-family: $font-family-serif;
+            text-align: center;
+            line-height: 1;
+            color: rgba(0, 0, 0, 0.6);
+            font-size: 4rem;
+        }
+    }
+    &-title {
+        text-align: center;
+        font-size: 3.6rem;
+        animation: slideInFromRight 1s ease-in-out .2s 1;
+        animation-fill-mode: both;
+        &-sub {
+            display: block;
+            font-size: 0.8em;
+            font-family: $font-family-serif;
+        }
+    }
+    &-wave {
+        animation: slideInFromBottom 1s ease-in-out .6s 1;
+        animation-fill-mode: both;
+    }
+    @media screen and (max-width: $screen-lg) {
+        &-title {
+            font-size: 3rem;
+        }
+        &-speech {
+            &-bubble {
+                font-size: 3rem;
+            }
+        }
+    }
+    @media screen and (max-width: $screen-md) {
+        &-title {
+            font-size: 2.8rem;
+        }
+        &-speech {
+            &-inner {
+                background-image: url('/img/home/speech3.svg');
+                background-position: center bottom;
+                background-size: 25%;
+            }
+        }
+    }
+    @media screen and (max-width: $screen-sm) {
+        &-title {
+            font-size: 2.2rem;
+            &-sub {
+                font-size: 1em;
+            }
+        }
+    }
+}
+
+@keyframes slideInFromTop {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromBottom {
+    0% {
+        transform: translateY(50%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

@@ -1,0 +1,28 @@
+
+
+$theme-primary: #ed913d;
+$theme-secondary: #4D78C9;
+$theme-tertiary: #5AC49F;
+
+$theme-bg: #111;
+
+$theme-positive: #fff;
+$theme-negative: #111;
+
+$text-color: #fff;
+$link-color: #876;
+
+$font-family: 'Quicksand', sans-serif;
+
+$max-width: 1170px;
+
+$screen-xl: 1440px;
+$screen-lg: 1280px;
+$screen-md: 1024px;
+$screen-sm: 640px;
+$screen-xs: 480px;
+
+@import "mixins";
+@import "utilities";
+@import "elements";
+@import "home";

@@ -1,0 +1,15 @@
+// Override base styles
+body {
+    background: $theme-bg;
+    color: $text-color;
+    font-family: $font-family;
+}
+p {
+
+}
+a {
+    color: $link-color;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: $font-family;
+}

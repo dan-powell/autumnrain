@@ -1,0 +1,30 @@
+.Error {
+    &-layout {
+        min-height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &-container {
+        max-width: 970px;
+        text-align: center;
+        padding: 2em;
+    }
+    &-header {
+
+    }
+    &-controls {
+
+    }
+    &-button {
+        display: inline-block;
+        margin: .5em;
+        padding: .5em 1em;
+        border: 1px solid $theme-primary;
+        &--primary {
+            background: $theme-primary;
+            color: $color-positive;
+        }
+    }
+}

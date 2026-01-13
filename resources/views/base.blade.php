@@ -13,9 +13,9 @@
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
     <link rel="icon" type="image/png" sizes="64x64" href="{{ asset('favicon.ico') }}">
 
-    <link rel="stylesheet" href="{{ asset('css/base.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ mix('css/base.css') }}" type="text/css">
     @if(!isset($sidebar) || isset($sidebar) && $sidebar == true)
-        <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ mix('css/sidebar.css') }}" type="text/css">
     @endif
     @stack('style')
 
@@ -24,10 +24,10 @@
 
     @stack('head')
 
-    <script defer src="{{ asset('js/manifest.js') }}"></script>
-    <script defer src="{{ asset('js/vendor.js') }}"></script>
+    <script defer src="{{ mix('js/manifest.js') }}"></script>
+    <script defer src="{{ mix('js/vendor.js') }}"></script>
     @if(!isset($sidebar) || isset($sidebar) && $sidebar == true)
-        <script defer src="{{ asset('js/sidebar.js') }}"></script>
+        <script defer src="{{ mix('js/sidebar.js') }}"></script>
     @endif
     @stack('script')
 

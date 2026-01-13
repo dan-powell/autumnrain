@@ -1,0 +1,24 @@
+.u-button {
+    display: inline-block;
+    padding: 0.5em 1em;
+    background: $theme-primary;
+    color: $theme-positive;
+}
+.u-title {
+    @include fluid-type(320px, 1920px, 30px, 80px);
+    text-align: center;
+}
+.u-subtitle {
+    @include fluid-type(320px, 1920px, 20px, 30px);
+    font-style: italic;
+    text-align: center;
+}
+
+
+.js-anime-drop {
+    transform-origin: 0% 0%;
+}
+.js-anime-span {
+    transform-origin: 50% 0%;
+    display: inline-block;
+}

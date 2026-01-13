@@ -1,0 +1,102 @@
+.Gallery {
+    &-header {
+        padding: 2em 3em;
+        &-title {
+
+        }
+        &-sub {
+
+        }
+    }
+    &-section {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 1em;
+        &-title {
+            padding: 1em;
+        }
+    }
+    &-layout {
+        display: flex;
+        align-items: flex-start;
+    }
+    &-nav {
+        top: 0;
+        position: sticky;
+        padding: 2em;
+        &-root {
+            list-style: none;
+        }
+        &-item {
+            margin: 0;
+        }
+        &-link {
+            display: block;
+            padding: 0.5em 1em;
+            color: $theme-primary;
+            &.is-active {
+                background-color: $theme-primary;
+                color: $theme-negative;
+            }
+            &:hover {
+                color: $theme-secondary;
+            }
+        }
+    }
+    &-list {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    &-item {
+        flex: 0 1 220px;
+        padding: 1em;
+        text-align: center;
+    }
+    &-link {
+        display: block;
+        transition: all .2s ease-out;
+        position: relative;
+        &:hover {
+            transform: scale(1.2) rotateZ(10deg);
+        }
+    }
+    &-date {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        padding: .2em .5em;
+        color: $theme-positive;
+        width: 100%;
+        background: linear-gradient(90deg, rgba(0,0,0,0), rgba(0,0,0,.6) 80%);
+        text-align: right;
+    }
+    @media screen and (max-width: $screen-md) {
+        &-item {
+            flex-basis: 180px;
+        }
+    }
+    @media screen and (max-width: $screen-sm) {
+        &-item {
+            flex-basis: 100px;
+            padding: .5em;
+        }
+        &-nav {
+            padding: 1em 1em 1em 0;
+        }
+    }
+    @media screen and (max-width: $screen-xs) {
+        &-item {
+            flex-basis: 80px;
+        }
+    }
+
+    .gdesc-inner {
+        background: #000;
+        text-align: center;
+    }
+    .gslide-title {
+        color: $text-color;
+        margin: 0;
+        font-family: $font-family-heading;
+    }
+}

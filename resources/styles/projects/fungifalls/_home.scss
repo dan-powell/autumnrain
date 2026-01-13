@@ -1,0 +1,101 @@
+.Home {
+    &-container {
+        $padding: 20px;
+        max-width: $max-width;
+        margin-left: auto;
+        margin-right: auto;
+        @media screen and (max-width: $max-width + ($padding * 2) + 90px) {
+            padding-left: $padding;
+            padding-right: $padding;
+        }
+    }
+    &-header {
+        background-color: #88543B;
+        background-image: url('/assets/bg_inside.png'), url('/assets/bg_night.png');
+        background-size: cover, auto 100%;
+        background-attachment: scroll, fixed;
+        min-height: 60vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        &-inner {
+            padding: 3em;
+        }
+    }
+    &-logo {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    &-title {
+        color: #fff;
+        padding: .5em;
+        small {
+            display: block;
+            font-size: .6em;
+        }
+    }
+    &-cta {
+        display: inline-flex;
+        text-transform: uppercase;
+        padding: .5em 1em;
+        margin: 0 auto;
+        background: $theme-primary;
+        color: $theme-positive;
+        justify-content: center;
+        align-items: center;
+        &-icon {
+            fill: $theme-negative;
+            flex: 0 1 40px;
+            margin-left: 1em;
+        }
+        &:hover, &:active {
+            background: $theme-tertiary;
+            color: $theme-positive;
+        }
+    }
+    &-description {
+        padding-top: 1em;
+        padding-bottom: 1em;
+    }
+    &-credits {
+        background: rgba(255,255,255,0.1);
+        padding-top: 1em;
+        padding-bottom: 1em;
+    }
+    &-outro {
+        padding-top: 1em;
+        padding-bottom: 1em;
+    }
+    &-row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    &-col {
+        flex: 1 1 auto;
+        padding: 1em;
+        &--1 {
+            flex-basis: calc(50% - 2em);
+        }
+        &--2 {
+            flex-basis: calc(50% - 2em);
+        }
+    }
+    &-center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        img {
+            display: inline-block;
+            max-width: 180px;
+        }
+    }
+    &-hr {
+        display: block;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

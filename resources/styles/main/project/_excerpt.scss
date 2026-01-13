@@ -1,0 +1,273 @@
+$container-width: 1024px;
+.ProjectExcerpt {
+    // Container width
+    position: relative;
+    &-link {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+    }
+    &-inner {
+        display: flex;
+        position: relative;
+        margin-left: calc((100vw - #{$container-width})/2);
+    }
+    &-thumb {
+        flex: 1 1 30%;
+        position: relative;
+        z-index: 2;
+        // Half-width background-offset
+        &::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            background: rgba(255,255,255,0.5);
+            border-radius: 0 0 0 1em;
+        }
+        // Hover effect
+        &::after {
+            transition: width .2s ease-in-out;
+            content: '';
+            position: absolute;
+            display: block;
+            width: 0%;
+            height: 100%;
+            left: 50%;
+            top: 0;
+            background: $theme-secondary;
+            z-index: -1;
+            border-radius: 0 0 0 1em;
+        }
+    }
+    &-img {
+        $ease-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        overflow: hidden;
+        position: relative;
+        clip-path: circle(50%);
+        transition: all .2s ease-in-out;
+        transition: all .3s $ease-bounce;
+        width: 100%;
+    }
+    &-details {
+        position: relative;
+        background: rgba(255,255,255,0.5);
+        display: flex;
+        align-items: center;
+        flex: 1 1 70%;
+        padding: 3rem;
+        padding-right: calc((100vw - #{$container-width})/2);
+        transition: all .2s ease-in-out;
+        // Hover effect
+        &::after {
+            transition: width .2s ease-in-out;
+            content: '';
+            position: absolute;
+            display: block;
+            width: 0%;
+            height: 100%;
+            right: 0;
+            top: 0;
+            background: linear-gradient(90deg, $theme-secondary, $theme-tertiary);
+            z-index: -2;
+        }
+    }
+    &-title {
+        transition: all .2s ease-in-out;
+        line-height: 1;
+        font-size: 2.6rem;
+    }
+    &-sub {
+        transition: all .2s ease-in-out;
+        line-height: 1.1;
+        font-size: 2.5rem;
+        margin-top: .5em;
+        font-family: $font-family-serif;
+    }
+    &-description {
+        margin-top: 1em;
+    }
+    // Hover Stuff
+    &:hover {
+        cursor: pointer;
+    }
+    &-link:focus + .ProjectExcerpt-inner,
+    &:hover {
+        .ProjectExcerpt-thumb {
+            &::before {
+                background: rgba(255,255,255,0);
+            }
+            &::after {
+                width: 50%;
+            }
+        }
+        .ProjectExcerpt-img {
+            transform: scale(1.1);
+        }
+        .ProjectExcerpt-details {
+            background: rgba(255,255,255,0);
+            color: $color-white;
+            &::after {
+                width: 100%;
+            }
+        }
+        .ProjectExcerpt-title {
+            color: $color-white;
+        }
+    }
+    @media screen and (max-width: $container-width) {
+        &-inner {
+            margin-left: 3rem;
+        }
+        &-details {
+            padding-right: 3rem;
+        }
+    }
+    @media screen and (max-width: $screen-xs) {
+        &-inner {
+            flex-wrap: wrap;
+            margin: 0;
+        }
+        &-thumb {
+            order: 1;
+            flex: 1 1 100%;
+            padding: 2rem;
+            &::before {
+                top: auto;
+                bottom: 0;
+                width: 100%;
+                height: 50%;
+                border-radius: 0;
+            }
+            &::after {
+                left: 0;
+                border-radius: 0;
+            }
+        }
+        &-details {
+            order: 2;
+            flex: 1 1 100%;
+            padding: 2rem;
+            text-align: center;
+        }
+        &-info {
+            width: 100%;
+        }
+        &-link:focus + .ProjectExcerpt-inner,
+        &:hover {
+            .ProjectExcerpt-thumb {
+                &::after {
+                    width: 100%;
+                }
+            }
+            .ProjectExcerpt-details {
+                &::after {
+                    background: linear-gradient(180deg, $theme-secondary, $theme-tertiary);
+                }
+            }
+        }
+    }
+}
+
+.ProjectList-item:nth-child(2n) {
+    .ProjectExcerpt {
+        &-inner {
+            margin-left: auto;
+            margin-right: calc((100vw - #{$container-width})/2);
+        }
+        &-thumb {
+            order: 2;
+            &::before {
+                left: 0;
+                right: auto;
+                border-radius: 0 0 1em 0;
+            }
+            // Hover effect
+            &::after {
+                right: 50%;
+                left: auto;
+                border-radius: 0 0 1em 0;
+            }
+        }
+        &-details {
+            order: 1;
+            padding-left: calc((100vw - #{$container-width})/2);
+            padding-right: 3rem;
+            text-align: right;
+            // Hover effect
+            &::after {
+                right: auto;
+                left: 0;
+                background: linear-gradient(270deg, $theme-secondary, $theme-tertiary);
+            }
+        }
+        &-info {
+            margin-left: auto;
+        }
+        @media screen and (max-width: $container-width) {
+            &-inner {
+                margin-right: 3rem;
+            }
+            &-details {
+                padding-left: 3rem;
+            }
+        }
+        @media screen and (max-width: $screen-xs) {
+            &-inner {
+                margin: 0;
+            }
+            &-thumb {
+                order: 1;
+                &::before {
+                    top: auto;
+                    bottom: 0;
+                    width: 100%;
+                    height: 50%;
+                    border-radius: 0;
+                }
+                &::after {
+                    left: 0;
+                    border-radius: 0;
+                }
+            }
+            &-details {
+                order: 2;
+                padding: 2rem;
+                text-align: center;
+            }
+            &-info {
+                margin-left: 0;
+            }
+            &-link:focus + .ProjectExcerpt-inner,
+            &:hover {
+                .ProjectExcerpt-thumb {
+                    &::after {
+                        width: 100%;
+                    }
+                }
+                .ProjectExcerpt-details {
+                    &::after {
+                        background: linear-gradient(180deg, $theme-secondary, $theme-tertiary);
+                    }
+                }
+            }
+        }
+    }
+}
+
+// .supports-observer {
+//     .ProjectExcerpt {
+//         opacity: 0;
+//         transform: scale(0.1);
+//         transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+//         &.is-visible {
+//             opacity: 1;
+//             transform: scale(1);
+//         }
+//     }
+// }
