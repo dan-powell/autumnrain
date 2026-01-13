@@ -22,3 +22,4 @@ hosts.yml
 # DB Exports
 /*.sql.gz
 /*.sql
+.aider*

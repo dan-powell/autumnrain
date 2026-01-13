@@ -2,12 +2,32 @@
 
 namespace App\Filament\Resources\AiWork;
 
+use Filament\Schemas\Schema;
+use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Grid;
+use Filament\Schemas\Components\Utilities\Get;
+use Filament\Schemas\Components\Utilities\Set;
+use Filament\Forms\Components\Hidden;
+use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\MarkdownEditor;
+use Filament\Schemas\Components\Section;
+use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\Textarea;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Actions\EditAction;
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteBulkAction;
+use App\Filament\Resources\AiWork\PieceResource\RelationManagers\ThemesRelationManager;
+use App\Filament\Resources\AiWork\PieceResource\Pages\ListPieces;
+use App\Filament\Resources\AiWork\PieceResource\Pages\CreatePiece;
+use App\Filament\Resources\AiWork\PieceResource\Pages\EditPiece;
 use App\Filament\Clusters\AiWork;
 use App\Filament\Resources\AiWork\PieceResource\Pages;
 use App\Filament\Resources\AiWork\PieceResource\RelationManagers;
 use App\Models\AiWork\Piece;
 use Filament\Forms;
-use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -16,8 +36,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Str;
 use Closure;
-use Filament\Forms\Get;
-use Filament\Forms\Set;
 
 class PieceResource extends Resource
 {
@@ -25,20 +43,20 @@ class PieceResource extends Resource
 
     protected static ?string $model = Piece::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
-            ->schema([
-                Forms\Components\TextInput::make('id')
+        return $schema
+            ->components([
+                TextInput::make('id')
                     ->default(fn(): string => strtolower(Str::ulid()))
                     ->readOnly()
                     ->required(),
-                Forms\Components\Grid::make()
+                Grid::make()
                     ->columns(3)
                     ->schema([
-                        Forms\Components\TextInput::make('name')
+                        TextInput::make('name')
                             ->afterStateUpdated(function (Get $get, Set $set, ?string $state) {
                                 if (! $get('slug_changed') && filled($state)) {
                                     $set('slug', Str::slug($state));
@@ -46,45 +64,45 @@ class PieceResource extends Resource
                             })
                             ->live(onBlur: true)
                             ->required(),
-                            Forms\Components\TextInput::make('slug')
+                            TextInput::make('slug')
                             ->afterStateUpdated(function (Set $set) {
                                 $set('is_slug_changed_manually', true);
                             })
                             ->unique(ignoreRecord: true)
                             ->required(),
-                        Forms\Components\Hidden::make('slug_changed')
+                        Hidden::make('slug_changed')
                             ->default(false)
                             ->dehydrated(false),
-                        Forms\Components\DateTimePicker::make('date')
+                        DateTimePicker::make('date')
                             ->default(now())
                             ->required(),
                     ]),
-                Forms\Components\FileUpload::make('image')
+                FileUpload::make('image')
                     ->disk('project_images')
                     ->directory(fn(Get $get) => 'aiwork/' . $get('id') . '/image')
                     ->image()
                     ->required(),
-                Forms\Components\FileUpload::make('thumbnail')
+                FileUpload::make('thumbnail')
                     ->disk('project_images')
                     ->directory(fn(Get $get) => 'aiwork/' . $get('id') . '/thumbnail')
                     ->image()
                     ->imageEditor(),
-                Forms\Components\MarkdownEditor::make('description')
+                MarkdownEditor::make('description')
                     ->disableToolbarButtons(['attachFiles'])
                     ->maxLength(65535)
                     ->columnSpanFull(),
-                Forms\Components\FileUpload::make('video')
+                FileUpload::make('video')
                     ->disk('project_assets')
                     ->directory(fn(Get $get) => 'aiwork/' . $get('id') . '/video'),
-                Forms\Components\Section::make('Process')->schema([
-                    Forms\Components\Repeater::make('process')
+                Section::make('Process')->schema([
+                    Repeater::make('process')
                         ->schema([
-                            Forms\Components\TextInput::make('caption'),
-                            Forms\Components\MarkdownEditor::make('description')
+                            TextInput::make('caption'),
+                            MarkdownEditor::make('description')
                                 ->disableToolbarButtons(['attachFiles'])
                                 ->maxLength(5535)
                                 ->columnSpanFull(),
-                            Forms\Components\FileUpload::make('images')
+                            FileUpload::make('images')
                                 ->disk('project_images')
                                 ->directory(fn(Get $get) => 'aiwork/' . $get('id') . '/process')
                                 ->image()
@@ -94,7 +112,7 @@ class PieceResource extends Resource
                         ])
                         ->defaultItems(0),
                 ]),
-                Forms\Components\Textarea::make('metadata')
+                Textarea::make('metadata')
                     ->maxLength(65535)
                     ->json()
                     ->columnSpanFull(),
@@ -105,25 +123,25 @@ class PieceResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name')
+                TextColumn::make('name')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('date')
+                TextColumn::make('date')
                     ->dateTime()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('slug')
+                TextColumn::make('slug')
                     ->searchable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\ImageColumn::make('image')
+                ImageColumn::make('image')
                     ->disk('project_images')
                     ->toggleable(),
-                Tables\Columns\ImageColumn::make('thumbnail')
+                ImageColumn::make('thumbnail')
                     ->disk('project_images')
                     ->toggleable(),
-                Tables\Columns\TextColumn::make('created_at')
+                TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
+                TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -131,12 +149,12 @@ class PieceResource extends Resource
             ->filters([
                 //
             ])
-            ->actions([
-                Tables\Actions\EditAction::make(),
+            ->recordActions([
+                EditAction::make(),
             ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+            ->toolbarActions([
+                BulkActionGroup::make([
+                    DeleteBulkAction::make(),
                 ]),
             ])
             ->defaultSort('date', 'desc');
@@ -145,16 +163,16 @@ class PieceResource extends Resource
     public static function getRelations(): array
     {
         return [
-            RelationManagers\ThemesRelationManager::class,
+            ThemesRelationManager::class,
         ];
     }
 
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListPieces::route('/'),
-            'create' => Pages\CreatePiece::route('/create'),
-            'edit' => Pages\EditPiece::route('/{record}/edit'),
+            'index' => ListPieces::route('/'),
+            'create' => CreatePiece::route('/create'),
+            'edit' => EditPiece::route('/{record}/edit'),
         ];
     }
 }

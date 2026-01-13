@@ -1,14 +1,14 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["/js/sidebar"],{
+"use strict";
+(self["webpackChunk"] = self["webpackChunk"] || []).push([["/js/sidebar"],{
 
-/***/ "./resources/scripts/sidebar/overlay.mjs":
+/***/ "./resources/scripts/sidebar/overlay.mjs"
 /*!***********************************************!*\
   !*** ./resources/scripts/sidebar/overlay.mjs ***!
   \***********************************************/
-/*! no exports provided */
-/***/ (function(__webpack_module__, __webpack_exports__, __webpack_require__) {
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 /*
 
 # Overlay
@@ -80,341 +80,288 @@ var foo = new Overlay('.overlay-selector', '.button-selector', {
 */
 
 (function (root, factory) {
-    if (typeof define === 'function' && define.amd) {
-        define([], function () {
-            return factory(root);
-        });
-    } else if (typeof exports === 'object') {
-        module.exports = factory(root);
-    } else {
-        root.Overlay = factory(root);
+  if (typeof define === 'function' && define.amd) {
+    define([], function () {
+      return factory(root);
+    });
+  } else if ((typeof exports === "undefined" ? "undefined" : _typeof(exports)) === 'object') {
+    module.exports = factory(root);
+  } else {
+    root.Overlay = factory(root);
+  }
+})(typeof __webpack_require__.g !== 'undefined' ? __webpack_require__.g : typeof window !== 'undefined' ? window : undefined, function (window) {
+  'use strict';
+
+  var test = false;
+
+  //
+  // Default settings
+  //
+
+  var defaults = {
+    open: 'false',
+    class_open: 'is-open',
+    class_open_control: 'is-active',
+    class_open_body: null,
+    callback_toggle: null,
+    callback_open: null,
+    callback_close: null
+  };
+  var open = false;
+
+  //
+  // Utility Methods
+  //
+
+  /**
+   * Merge defaults with user options
+   */
+  var debug = function debug(note, object) {
+    if (test == true) {
+      console.log(note, object);
     }
-})(typeof global !== 'undefined' ? global : typeof window !== 'undefined' ? window : undefined, function (window) {
+    return defaults;
+  };
 
-    'use strict';
+  /**
+   * Merge defaults with user options
+   */
+  var extend = function extend(defaults, options) {
+    for (var key in options) {
+      if (Object.prototype.hasOwnProperty.call(options, key)) {
+        defaults[key] = options[key];
+      }
+    }
+    return defaults;
+  };
 
-    var test = false;
+  /**
+   * Check if browser supports required methods
+   * @return {Boolean} Returns true if all required methods are supported
+   */
+  var supports = function supports() {
+    return 'querySelectorAll' in document && 'addEventListener' in window && 'classList' in window.Element.prototype;
+  };
+
+  //
+  // Constructor
+  //
+
+  var Overlay = function Overlay(overlay_selector, button_selector, options) {
+    //
+    // Variables
+    //
+
+    var Overlay = {}; // Object for public APIs
+    var settings;
 
     //
-    // Default settings
-    //
-
-    var defaults = {
-        open: 'false',
-        class_open: 'is-open',
-        class_open_control: 'is-active',
-        class_open_body: null,
-        callback_toggle: null,
-        callback_open: null,
-        callback_close: null
-    };
-
-    var open = false;
-
-    //
-    // Utility Methods
+    // Public Methods
     //
 
     /**
-     * Merge defaults with user options
+     * Destroy the current initialization.
      */
-    var debug = function ( note, object ) {
-        if (test == true) {
-            console.log(note, object)
-        }
-        return defaults;
+    Overlay.destroy = function () {
+      // If plugin isn't already initialized, stop
+      if (!settings) return;
     };
 
     /**
-     * Merge defaults with user options
+     * Initialize
      */
-    var extend = function ( defaults, options ) {
-        for ( var key in options ) {
-            if (Object.prototype.hasOwnProperty.call(options, key)) {
-                defaults[key] = options[key];
-            }
-        }
-        return defaults;
+    Overlay.init = function (options) {
+      // feature test
+      if (!supports()) console.error('Overlay: This browser does not support the required JavaScript methods and browser APIs.');
+
+      // Destroy any existing initializations
+      Overlay.destroy();
+
+      // Selectors and variables
+      settings = extend(defaults, options || {}); // Merge user options with defaults
+
+      debug('settings', settings);
+
+      // Find all the controls & overlays
+      if (typeof button_selector !== 'undefined') {
+        Overlay.controls = document.querySelectorAll(button_selector);
+      } else {
+        Overlay.controls = [];
+      }
+      Overlay.overlays = document.querySelectorAll(overlay_selector);
+      if (Overlay.controls.length > 0) {
+        setup_controls();
+      }
+      setup_outside();
     };
 
     /**
-     * Check if browser supports required methods
-     * @return {Boolean} Returns true if all required methods are supported
+     * Toggle
      */
-    var supports = function () {
-        return (
-            'querySelectorAll' in document &&
-            'addEventListener' in window &&
-            'classList' in window.Element.prototype
-        );
+    Overlay.toggle = function () {
+      for (var i = 0; i < Overlay.controls.length; i++) {
+        Overlay.controls[i].classList.toggle(settings.class_open_control);
+      }
+      for (var i = 0; i < Overlay.overlays.length; i++) {
+        Overlay.overlays[i].classList.toggle(settings.class_open);
+      }
+      if (settings.class_open_body != null) {
+        document.body.classList.toggle(settings.class_open_body);
+      }
+      if (typeof settings.callback_toggle == 'function') {
+        debug('Toggle Callback');
+        settings.callback_toggle();
+      }
+      if (open === false) {
+        open = true;
+        if (typeof settings.callback_open == 'function') {
+          debug('Open Callback');
+          settings.callback_open();
+        }
+      } else {
+        open = false;
+        if (typeof settings.callback_close == 'function') {
+          debug('Close Callback');
+          settings.callback_close();
+        }
+      }
+      debug('toggle()', open);
+    };
+    Overlay.close = function () {
+      for (var i = 0; i < Overlay.controls.length; i++) {
+        Overlay.controls[i].classList.remove(settings.class_open_control);
+      }
+      for (var i = 0; i < Overlay.overlays.length; i++) {
+        Overlay.overlays[i].classList.remove(settings.class_open);
+      }
+      if (settings.class_open_body != null) {
+        document.body.classList.remove(settings.class_open_body);
+      }
+      open = false;
+      if (typeof settings.callback_close == 'function') {
+        debug('Close Callback');
+        settings.callback_close();
+      }
+      debug('close()', open);
+    };
+    Overlay.open = function () {
+      for (var i = 0; i < Overlay.controls.length; i++) {
+        Overlay.controls[i].classList.add(settings.class_open_control);
+      }
+      for (var i = 0; i < Overlay.overlays.length; i++) {
+        Overlay.overlays[i].classList.add(settings.class_open);
+      }
+      if (settings.class_open_body != null) {
+        document.body.classList.add(settings.class_open_body);
+      }
+      open = true;
+      if (typeof settings.callback_open == 'function') {
+        debug('Open Callback');
+        settings.callback_open();
+      }
+      debug('open()', open);
     };
 
     //
-    // Constructor
+    // Private Methods
     //
 
-    var Overlay = function (overlay_selector, button_selector, options) {
+    /**
+     * Add event listeners for clicks on controls.
+     */
+    var setup_controls = function setup_controls() {
+      for (var i = 0; i < Overlay.controls.length; i++) {
+        // For touch events
+        Overlay.controls[i].addEventListener('touchstart', function (e) {
+          debug('touch!');
+          e.preventDefault();
+          Overlay.toggle();
+        }, true);
 
-        //
-        // Variables
-        //
-
-        var Overlay = {}; // Object for public APIs
-        var settings;
-
-
-        //
-        // Public Methods
-        //
-
-        /**
-         * Destroy the current initialization.
-         */
-        Overlay.destroy = function() {
-
-            // If plugin isn't already initialized, stop
-            if (!settings) return;
-
-        };
-
-        /**
-         * Initialize
-         */
-        Overlay.init = function(options) {
-
-            // feature test
-            if (!supports()) console.error('Overlay: This browser does not support the required JavaScript methods and browser APIs.');
-
-            // Destroy any existing initializations
-            Overlay.destroy();
-
-            // Selectors and variables
-            settings = extend(defaults, options || {}); // Merge user options with defaults
-
-            debug('settings', settings);
-
-            // Find all the controls & overlays
-            if (typeof button_selector !== 'undefined') {
-                Overlay.controls = document.querySelectorAll(button_selector);
-            } else {
-                Overlay.controls = [];
-            }
-            Overlay.overlays = document.querySelectorAll(overlay_selector);
-
-            if(Overlay.controls.length > 0) {
-                setup_controls();
-            }
-
-            setup_outside();
-
-        };
-
-        /**
-         * Toggle
-         */
-        Overlay.toggle = function() {
-
-            for(var i = 0; i < Overlay.controls.length; i++) {
-                Overlay.controls[i].classList.toggle(settings.class_open_control);
-            }
-
-            for(var i = 0; i < Overlay.overlays.length; i++) {
-                Overlay.overlays[i].classList.toggle(settings.class_open);
-            }
-
-            if(settings.class_open_body != null) {
-                document.body.classList.toggle(settings.class_open_body);
-            }
-
-            if(typeof settings.callback_toggle == 'function') {
-                debug('Toggle Callback');
-                settings.callback_toggle();
-            }
-
-            if (open === false) {
-                open = true;
-                if(typeof settings.callback_open == 'function') {
-                    debug('Open Callback');
-                    settings.callback_open();
-                }
-            } else {
-                open = false;
-                if(typeof settings.callback_close == 'function') {
-                    debug('Close Callback');
-                    settings.callback_close();
-                }
-            }
-
-            debug('toggle()', open);
-
-        }
-
-
-        Overlay.close = function() {
-
-            for(var i = 0; i < Overlay.controls.length; i++) {
-                Overlay.controls[i].classList.remove(settings.class_open_control);
-            }
-
-            for(var i = 0; i < Overlay.overlays.length; i++) {
-                Overlay.overlays[i].classList.remove(settings.class_open);
-            }
-
-            if(settings.class_open_body != null) {
-                document.body.classList.remove(settings.class_open_body);
-            }
-
-            open = false;
-
-            if(typeof settings.callback_close == 'function') {
-                debug('Close Callback');
-                settings.callback_close();
-            }
-
-            debug('close()', open);
-
-        }
-
-        Overlay.open = function() {
-
-            for(var i = 0; i < Overlay.controls.length; i++) {
-                Overlay.controls[i].classList.add(settings.class_open_control);
-            }
-
-            for(var i = 0; i < Overlay.overlays.length; i++) {
-                Overlay.overlays[i].classList.add(settings.class_open);
-            }
-
-            if(settings.class_open_body != null) {
-                document.body.classList.add(settings.class_open_body);
-            }
-
-            open = true;
-
-            if(typeof settings.callback_open == 'function') {
-                debug('Open Callback');
-                settings.callback_open();
-            }
-
-            debug('open()', open);
-
-        }
-
-        //
-        // Private Methods
-        //
-
-        /**
-         * Add event listeners for clicks on controls.
-         */
-        var setup_controls = function() {
-            for(var i = 0; i < Overlay.controls.length; i++) {
-
-                // For touch events
-                Overlay.controls[i].addEventListener('touchstart', function(e){
-                    debug('touch!');
-                    e.preventDefault();
-                    Overlay.toggle();
-                }, true);
-
-                // For click events
-                Overlay.controls[i].addEventListener('click', function(e){
-                    debug('click!');
-                    e.preventDefault();
-                    Overlay.toggle();
-                }, true);
-
-            }
-        }
-
-        /**
-         * Add an event listener to the document to catch 'outside' clicks.
-         */
-        var setup_outside = function () {
-
-            // For touch events
-            document.addEventListener('touchstart', function(e){
-                debug('outside touch!');
-                outside(e);
-            }, true);
-
-            // For click events
-            document.addEventListener('click', function(e){
-                debug('outside click!');
-                outside(e);
-            }, true);
-
-        }
-
-        /**
-         * Handle clicks on outside
-         */
-        var outside = function(event) {
-
-            // Check if the event occured on a button
-            var test = false;
-            for(var i = 0; i < Overlay.controls.length; i++) {
-                if (Overlay.controls[i].contains(event.target)) {
-                    test = true;
-                }
-            }
-
-            // Check if the event occured within an overlay
-            if(test === false) {
-                var test = false;
-                for(var i = 0; i < Overlay.overlays.length; i++) {
-                    if (Overlay.overlays[i].contains(event.target)) {
-                        test = true;
-                    }
-
-                    if (test === false) {
-                        // If neither of the above checks are true, close the overlay
-                        Overlay.close();
-                    }
-                }
-            }
-        }
-
-
-        //
-        // Initialize plugin
-        //
-
-        Overlay.init(options);
-
-
-        //
-        // Public APIs
-        //
-
-        return Overlay;
-
+        // For click events
+        Overlay.controls[i].addEventListener('click', function (e) {
+          debug('click!');
+          e.preventDefault();
+          Overlay.toggle();
+        }, true);
+      }
     };
+
+    /**
+     * Add an event listener to the document to catch 'outside' clicks.
+     */
+    var setup_outside = function setup_outside() {
+      // For touch events
+      document.addEventListener('touchstart', function (e) {
+        debug('outside touch!');
+        outside(e);
+      }, true);
+
+      // For click events
+      document.addEventListener('click', function (e) {
+        debug('outside click!');
+        outside(e);
+      }, true);
+    };
+
+    /**
+     * Handle clicks on outside
+     */
+    var outside = function outside(event) {
+      // Check if the event occured on a button
+      var test = false;
+      for (var i = 0; i < Overlay.controls.length; i++) {
+        if (Overlay.controls[i].contains(event.target)) {
+          test = true;
+        }
+      }
+
+      // Check if the event occured within an overlay
+      if (test === false) {
+        var test = false;
+        for (var i = 0; i < Overlay.overlays.length; i++) {
+          if (Overlay.overlays[i].contains(event.target)) {
+            test = true;
+          }
+          if (test === false) {
+            // If neither of the above checks are true, close the overlay
+            Overlay.close();
+          }
+        }
+      }
+    };
+
+    //
+    // Initialize plugin
+    //
+
+    Overlay.init(options);
+
+    //
+    // Public APIs
+    //
 
     return Overlay;
-
+  };
+  return Overlay;
 });
 
+/***/ },
 
-/***/ }),
-
-/***/ "./resources/scripts/sidebar/sidebar.js":
+/***/ "./resources/scripts/sidebar/sidebar.js"
 /*!**********************************************!*\
   !*** ./resources/scripts/sidebar/sidebar.js ***!
   \**********************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _overlay__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./overlay */ "./resources/scripts/sidebar/overlay.mjs");
 /* harmony import */ var animejs_lib_anime_es_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! animejs/lib/anime.es.js */ "./node_modules/animejs/lib/anime.es.js");
 
 
-
 (function () {
   function open_sidebar() {
-    Object(animejs_lib_anime_es_js__WEBPACK_IMPORTED_MODULE_1__["default"])({
+    (0,animejs_lib_anime_es_js__WEBPACK_IMPORTED_MODULE_1__["default"])({
       targets: '.Sidebar .Nav-link',
       opacity: [{
         value: 1,
@@ -423,7 +370,7 @@ __webpack_require__.r(__webpack_exports__);
       }],
       delay: animejs_lib_anime_es_js__WEBPACK_IMPORTED_MODULE_1__["default"].stagger(200)
     });
-    Object(animejs_lib_anime_es_js__WEBPACK_IMPORTED_MODULE_1__["default"])({
+    (0,animejs_lib_anime_es_js__WEBPACK_IMPORTED_MODULE_1__["default"])({
       targets: '.Sidebar-overlay-bg polygon',
       opacity: [{
         value: 1,
@@ -439,9 +386,8 @@ __webpack_require__.r(__webpack_exports__);
       })
     });
   }
-
   function close_sidebar() {
-    Object(animejs_lib_anime_es_js__WEBPACK_IMPORTED_MODULE_1__["default"])({
+    (0,animejs_lib_anime_es_js__WEBPACK_IMPORTED_MODULE_1__["default"])({
       targets: '.Sidebar .Nav-link',
       opacity: [{
         value: 0,
@@ -449,7 +395,7 @@ __webpack_require__.r(__webpack_exports__);
         duration: 200
       }]
     });
-    Object(animejs_lib_anime_es_js__WEBPACK_IMPORTED_MODULE_1__["default"])({
+    (0,animejs_lib_anime_es_js__WEBPACK_IMPORTED_MODULE_1__["default"])({
       targets: '.Sidebar-overlay-bg polygon',
       opacity: [{
         value: 0,
@@ -465,7 +411,6 @@ __webpack_require__.r(__webpack_exports__);
       })
     });
   }
-
   var sidebar = new Overlay('.Sidebar', '.js-sidebar', {
     open: 'false',
     // Initial state
@@ -484,18 +429,12 @@ __webpack_require__.r(__webpack_exports__);
   });
 })();
 
-/***/ }),
+/***/ }
 
-/***/ 6:
-/*!****************************************************!*\
-  !*** multi ./resources/scripts/sidebar/sidebar.js ***!
-  \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(/*! /app/resources/scripts/sidebar/sidebar.js */"./resources/scripts/sidebar/sidebar.js");
-
-
-/***/ })
-
-},[[6,"/js/manifest","/js/vendor"]]]);
+},
+/******/ __webpack_require__ => { // webpackRuntimeModules
+/******/ var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
+/******/ __webpack_require__.O(0, ["/js/vendor"], () => (__webpack_exec__("./resources/scripts/sidebar/sidebar.js")));
+/******/ var __webpack_exports__ = __webpack_require__.O();
+/******/ }
+]);
