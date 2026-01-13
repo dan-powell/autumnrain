@@ -6,16 +6,12 @@
 }
 
 .u-title {
-  text-align: center;
-}
-
-.u-title {
   font-size: 30px;
 }
 
 @media screen and (min-width: 320px) {
   .u-title {
-    font-size: calc(30px + 50 * ((100vw - 320px) / 1600));
+    font-size: calc(30px + 50 * (100vw - 320px) / 1600);
   }
 }
 
@@ -25,8 +21,7 @@
   }
 }
 
-.u-subtitle {
-  font-style: italic;
+.u-title {
   text-align: center;
 }
 
@@ -36,7 +31,7 @@
 
 @media screen and (min-width: 320px) {
   .u-subtitle {
-    font-size: calc(20px + 10 * ((100vw - 320px) / 1600));
+    font-size: calc(20px + 10 * (100vw - 320px) / 1600);
   }
 }
 
@@ -44,6 +39,11 @@
   .u-subtitle {
     font-size: 30px;
   }
+}
+
+.u-subtitle {
+  font-style: italic;
+  text-align: center;
 }
 
 .js-anime-drop {
@@ -65,12 +65,7 @@ a {
   color: #876;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   font-family: "Quicksand", sans-serif;
 }
 
@@ -124,8 +119,6 @@ h6 {
   color: #fff;
   font-weight: 300;
   font-size: 5vw;
-  text-transform: lowercase;
-  margin-bottom: 0.2em;
 }
 
 .HomeTitle-small {
@@ -134,7 +127,7 @@ h6 {
 
 @media screen and (min-width: 320px) {
   .HomeTitle-small {
-    font-size: calc(30px + 70 * ((100vw - 320px) / 1600));
+    font-size: calc(30px + 70 * (100vw - 320px) / 1600);
   }
 }
 
@@ -144,11 +137,14 @@ h6 {
   }
 }
 
+.HomeTitle-small {
+  text-transform: lowercase;
+  margin-bottom: 0.2em;
+}
+
 .HomeTitle-large {
   display: inline-block;
   font-weight: 300;
-  text-transform: uppercase;
-  margin-bottom: 0.02em;
 }
 
 .HomeTitle-large {
@@ -157,7 +153,7 @@ h6 {
 
 @media screen and (min-width: 320px) {
   .HomeTitle-large {
-    font-size: calc(50px + 230 * ((100vw - 320px) / 1600));
+    font-size: calc(50px + 230 * (100vw - 320px) / 1600);
   }
 }
 
@@ -167,11 +163,14 @@ h6 {
   }
 }
 
+.HomeTitle-large {
+  text-transform: uppercase;
+  margin-bottom: 0.02em;
+}
+
 .HomeTitle-sub {
   display: inline-block;
   color: #fff;
-  text-transform: lowercase;
-  margin-bottom: 0.2em;
 }
 
 .HomeTitle-sub {
@@ -180,7 +179,7 @@ h6 {
 
 @media screen and (min-width: 320px) {
   .HomeTitle-sub {
-    font-size: calc(14px + 26 * ((100vw - 320px) / 1600));
+    font-size: calc(14px + 26 * (100vw - 320px) / 1600);
   }
 }
 
@@ -188,6 +187,11 @@ h6 {
   .HomeTitle-sub {
     font-size: 40px;
   }
+}
+
+.HomeTitle-sub {
+  text-transform: lowercase;
+  margin-bottom: 0.2em;
 }
 
 .HomeTitle-more {
@@ -220,9 +224,6 @@ h6 {
   max-width: 80vw;
   margin-left: auto;
   margin-right: auto;
-  -webkit-backdrop-filter: blur(20px);
-          backdrop-filter: blur(20px);
-  background: rgba(0, 0, 0, 0.6);
 }
 
 .HomeIntro {
@@ -231,7 +232,7 @@ h6 {
 
 @media screen and (min-width: 320px) {
   .HomeIntro {
-    font-size: calc(16px + 18 * ((100vw - 320px) / 1600));
+    font-size: calc(16px + 18 * (100vw - 320px) / 1600);
   }
 }
 
@@ -239,6 +240,11 @@ h6 {
   .HomeIntro {
     font-size: 34px;
   }
+}
+
+.HomeIntro {
+  backdrop-filter: blur(20px);
+  background: rgba(0, 0, 0, 0.6);
 }
 
 .HomeIntro > *:last-child() {
@@ -295,7 +301,7 @@ h6 {
 
 @media screen and (min-width: 320px) {
   .HomeButtons-button {
-    font-size: calc(22px + 12 * ((100vw - 320px) / 1600));
+    font-size: calc(22px + 12 * (100vw - 320px) / 1600);
   }
 }
 
@@ -345,7 +351,6 @@ h6 {
     max-width: none;
     padding: 20px 0;
   }
-
   .HomeButtons-col {
     flex: 1 1 100%;
   }
@@ -353,8 +358,7 @@ h6 {
 
 .HomeTimelapses {
   background: rgba(0, 0, 0, 0.8);
-  -webkit-backdrop-filter: blur(20px);
-          backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
   padding: 80px 40px;
 }
 
@@ -381,11 +385,9 @@ h6 {
   .HomeTimelapses {
     padding: 40px 0;
   }
-
   .HomeTimelapses-list {
     flex-wrap: wrap;
   }
-
   .HomeTimelapses-item {
     flex: 1 1 100%;
     padding: 20px;
@@ -409,8 +411,7 @@ h6 {
   margin-top: 80px;
   margin-bottom: 80px;
   display: flex;
-  -webkit-backdrop-filter: blur(20px);
-          backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
   background: rgba(0, 0, 0, 0.6);
 }
 
@@ -449,15 +450,12 @@ h6 {
   .HomeProject {
     flex-wrap: wrap;
   }
-
   .HomeProject-description {
     flex: 1 1 100%;
     order: 2;
   }
-
   .HomeProject-img {
     flex: 1 1 100%;
     order: 1;
   }
 }
-
