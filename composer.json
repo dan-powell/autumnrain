@@ -13,7 +13,6 @@
         "league/glide": "^2.0"
     },
     "require-dev": {
-        "deployer/deployer": "^7.5",
         "barryvdh/laravel-debugbar": "^3.14",
         "driftingly/rector-laravel": "^0.30.0",
         "fakerphp/faker": "^1.9.1",

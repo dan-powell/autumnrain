@@ -15,7 +15,8 @@ if (mix.inProduction()) {
     mix.version();
 }
 
-mix.postCss('resources/styles/base/base.css', 'public/css/base.css')
+mix.sass('resources/styles/base/base.scss', 'public/css/base.css')
+    .sass('resources/styles/main/base.scss', 'public/css/main.css')
     .sass('resources/styles/sidebar/base.scss', 'public/css/sidebar.css')
     .sass('resources/styles/projects/365/base.scss', 'public/css/projects/365.css')
     .sass('resources/styles/projects/fungifalls/base.scss', 'public/css/projects/fungifalls.css')
@@ -23,9 +24,7 @@ mix.postCss('resources/styles/base/base.css', 'public/css/base.css')
     .sass('resources/styles/projects/3dprint/base.scss', 'public/css/projects/3dprint.css')
     .sass('resources/styles/projects/aiwork/base.scss', 'public/css/projects/aiwork.css')
     .options({
-        postCss: [
-            require('postcss-import'),
-        ],
+
     });
 
 mix.js(['resources/scripts/main/base.js', 'resources/scripts/main/_home.js', 'resources/scripts/main/_projects.js'], 'public/js/main.js')

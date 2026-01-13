@@ -1,0 +1,43 @@
+.Pagination {
+    padding: 0.5em;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5em;
+    > * {
+        margin: 0;
+        padding: 0;
+        flex: 0 1 auto;
+    }
+    a,
+    span {
+        border-width: 2px;
+        border-style: solid;
+        width: 3em;
+        height: 3em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+    }
+    span {
+        border-color: $text-color;
+    }
+    a {
+        border-color: $theme-primary;
+        &:hover {
+            background: $theme-primary;
+            color: $theme-bg;
+        }
+    }
+    li {
+        &.is-active {
+            a, span {
+                border-color: $theme-secondary;
+                background: $theme-secondary;
+                color: $theme-bg;
+            }
+        }
+    }
+}

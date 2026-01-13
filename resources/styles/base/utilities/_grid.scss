@@ -1,0 +1,245 @@
+// basic flex-based grid loosely based on Bootstrap
+
+// Variables
+$columns: 12;
+$gutter: 3px;
+// @gutter-lg: 100*@gutter/100; // 100%
+// @gutter-md: 75*@gutter/100; // 75%
+// @gutter-sm: 50*@gutter/100; // 50%
+// @gutter-xs: 25*@gutter/100; // 25%
+$gutter-lg: $gutter; // 100%
+$gutter-md: $gutter; // 75%
+$gutter-sm: $gutter; // 50%
+$gutter-xs: $gutter; // 25%
+
+// Basic Setup
+.u-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.u-row--between {
+    .u-row();
+    justify-content: space-between;
+}
+.u-row--around {
+    .u-row();
+    justify-content: space-around;
+}
+.u-row--nowrap {
+    .u-row();
+    flex-wrap: nowrap;
+}
+.u-row--reverse {
+    .u-row();
+    flex-direction: row-reverse;
+}
+.u-col {
+    flex: 0 1 auto;
+    box-sizing: border-box;
+    padding-left: @gutter;
+    padding-right: @gutter;
+}
+// Ordering
+.u-col {
+    &--first {
+        order: 0;
+    }
+    &--last {
+        order: 999;
+    }
+    // each(range(@columns), {
+    //     &--order--@{value} {
+    //         order: @value;
+    //     }
+    // });
+}
+@media screen and (max-width: $screen-md) {
+    .u-col {
+        &--md--first {
+            order: 0;
+        }
+        &--md--last {
+            order: 999;
+        }
+        // each(range(@columns), {
+        //     &--order--md--@{value} {
+        //         order: @value;
+        //     }
+        // });
+    }
+}
+@media screen and (max-width: $screen-sm) {
+    .u-col {
+        &--sm--first {
+            order: 0;
+        }
+        &--sm--last {
+            order: 999;
+        }
+        // each(range(@columns), {
+        //     &--order--sm--@{value} {
+        //         order: @value;
+        //     }
+        // });
+    }
+}
+@media screen and (max-width: $breakpoint) {
+    // Always restore source order at breakpoint
+    .u-col {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        &--first,
+        &--last {
+            order: unset;
+        }
+        // each(range(@columns), {
+        //     &--order@{value} {
+        //         order: unset;
+        //     }
+        // });
+    }
+}
+// Vertical Spacing (Skirt)
+.u-row--skirt {
+    .u-col {
+        margin-bottom: $gutter;
+    }
+    @media screen and (max-width: $screen-lg) {
+        .u-col {
+            margin-bottom: $gutter-lg;
+        }
+    }
+    @media screen and (max-width: $screen-md) {
+        .u-col {
+            margin-bottom: $gutter-md;
+        }
+    }
+    @media screen and (max-width: $screen-sm) {
+        .u-col {
+            margin-bottom: $gutter-sm;
+        }
+    }
+}
+// .u-col--xs--#
+@media screen and (max-width: $screen-xs) {
+    .u-col--skirt {
+        margin-bottom: $gutter-xs;
+    }
+}
+// -------------- Column generator
+// Generates columns based classic x grid
+// .u-col--#
+// each(range(@columns), {
+//     .u-col--@{value} {
+//         flex-basis: (@value/@columns*100%);
+//         padding-left: @gutter-xs;
+//         padding-right: @gutter-xs;
+//     }
+// });
+// -------------- Auto column breakpoint generator
+// Column width is automatic based on breakpoint
+// Optional - delete this section if not required
+// .u-col--#
+@media screen and (max-width: $screen-md) {
+    // each(range(@columns), {
+    //     .u-col--@{value} {
+    //         flex-basis: min(@value/@columns*133%, 100%);
+    //     }
+    // });
+}
+@media screen and (max-width: $screen-sm) {
+    // each(range(@columns), {
+    //     .u-col--@{value} {
+    //         flex-basis: min(@value/@columns*150%, 100%);
+    //     }
+    // });
+}
+@media screen and (max-width: $screen-xs) {
+    // each(range(@columns), {
+    //     .u-col--@{value} {
+    //         flex-basis: 100%;
+    //         padding-left: 0;
+    //         padding-right: 0;
+    //     }
+    // });
+}
+// -------------- Basic column generator
+// Defines simple fractional column widths with a single breakpoint
+// Optional - delete this section if not required
+.u-col {
+    &--half {
+        .u-col;
+        flex-basis: 50%;
+    }
+    &--third {
+        .u-col;
+        flex-basis: 33.3%;
+    }
+    &--twothirds {
+        .u-col;
+        flex-basis: 66.6%;
+    }
+    &--quarter {
+        .u-col;
+        flex-basis: 25%;
+    }
+    &--threequarters {
+        .u-col();
+        flex-basis: 75%;
+    }
+    @media screen and (max-width: $breakpoint) {
+        &--half,
+        &--third,
+        &--twothirds,
+        &--quarter,
+        &--threequarters {
+            flex-basis: 100%;
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}
+// -------------- Breakpoint column generator
+// Allows control over column widths for each breakpoint
+// Optional - delete this section if not required
+// .u-col--lg--#
+@media screen and (max-width: $screen-lg) {
+    // each(range(@columns), {
+    //     .u-col--lg--@{value} {
+    //         flex-basis: (@value/@columns*100%);
+    //         padding-left: @gutter-lg;
+    //         padding-right: @gutter-lg;
+    //     }
+    // });
+}
+// .u-col--md--#
+@media screen and (max-width: $screen-md) {
+    // each(range(@columns), {
+    //     .u-col--md--@{value} {
+    //         flex-basis: (@value/@columns*100%);
+    //         padding-left: @gutter-md;
+    //         padding-right: @gutter-md;
+    //     }
+    // });
+}
+// .u-col--sm--#
+@media screen and (max-width: $screen-sm) {
+    // each(range(@columns), {
+    //     .u-col--sm--@{value} {
+    //         flex-basis: (@value/@columns*100%);
+    //         padding-left: @gutter-sm;
+    //         padding-right: @gutter-sm;
+    //     }
+    // });
+}
+// .u-col--xs--#
+@media screen and (max-width: $screen-xs) {
+    // each(range(@columns), {
+    //     .u-col--xs--@{value} {
+    //         flex-basis: (@value/@columns*100%);
+    //         padding-left: @gutter-xs;
+    //         padding-right: @gutter-xs;
+    //     }
+    // });
+}
