@@ -8,5 +8,5 @@ class AiWork extends Cluster
 {
     protected static ?string $navigationLabel = 'AI Work';
 
-    protected static ?string $navigationIcon = 'heroicon-o-squares-2x2';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-squares-2x2';
 }

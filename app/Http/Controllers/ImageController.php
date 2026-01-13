@@ -1,9 +1,9 @@
 <?php namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Storage;
-use League\Glide\Responses\LaravelResponseFactory;
-use League\Glide\ServerFactory;
 use App\Http\Requests\ImageGetRequest;
+use App\Http\Responses\GlideLaravelResponseFactory;
+use League\Glide\ServerFactory;
 
 class ImageController extends Controller
 {
@@ -24,7 +24,7 @@ class ImageController extends Controller
     private function create_server($source, $cache)
     {
         return ServerFactory::create([
-            'response' => new LaravelResponseFactory(app('request')),
+            'response' => new GlideLaravelResponseFactory(),
             'source' => $source,
             'cache' => $cache,
             'cache_path_prefix' => '',

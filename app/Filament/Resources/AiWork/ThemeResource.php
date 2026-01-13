@@ -2,12 +2,22 @@
 
 namespace App\Filament\Resources\AiWork;
 
+use Filament\Schemas\Schema;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\MarkdownEditor;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Actions\EditAction;
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteBulkAction;
+use App\Filament\Resources\AiWork\ThemeResource\RelationManagers\PiecesRelationManager;
+use App\Filament\Resources\AiWork\ThemeResource\Pages\ListThemes;
+use App\Filament\Resources\AiWork\ThemeResource\Pages\CreateTheme;
+use App\Filament\Resources\AiWork\ThemeResource\Pages\EditTheme;
 use App\Filament\Clusters\AiWork;
 use App\Filament\Resources\AiWork\ThemeResource\Pages;
 use App\Filament\Resources\AiWork\ThemeResource\RelationManagers;
 use App\Models\AiWork\Theme;
 use Filament\Forms;
-use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -21,16 +31,16 @@ class ThemeResource extends Resource
 
     protected static ?string $model = Theme::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
-            ->schema([
-                Forms\Components\TextInput::make('name')
+        return $schema
+            ->components([
+                TextInput::make('name')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\MarkdownEditor::make('description')
+                MarkdownEditor::make('description')
                     ->disableToolbarButtons(['attachFiles'])
                     ->maxLength(65535)
                     ->columnSpanFull(),
@@ -41,12 +51,12 @@ class ThemeResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name')
+                TextColumn::make('name')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('created_at')
+                TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('updated_at')
+                TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -54,12 +64,12 @@ class ThemeResource extends Resource
             ->filters([
                 //
             ])
-            ->actions([
-                Tables\Actions\EditAction::make(),
+            ->recordActions([
+                EditAction::make(),
             ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+            ->toolbarActions([
+                BulkActionGroup::make([
+                    DeleteBulkAction::make(),
                 ]),
             ])
             ->defaultSort('created_at', 'DESC');
@@ -68,16 +78,16 @@ class ThemeResource extends Resource
     public static function getRelations(): array
     {
         return [
-            RelationManagers\PiecesRelationManager::class,
+            PiecesRelationManager::class,
         ];
     }
 
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListThemes::route('/'),
-            'create' => Pages\CreateTheme::route('/create'),
-            'edit' => Pages\EditTheme::route('/{record}/edit'),
+            'index' => ListThemes::route('/'),
+            'create' => CreateTheme::route('/create'),
+            'edit' => EditTheme::route('/{record}/edit'),
         ];
     }
 }
