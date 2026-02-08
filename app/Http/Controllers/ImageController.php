@@ -28,8 +28,7 @@ class ImageController extends Controller
             'source' => $source,
             'cache' => $cache,
             'cache_path_prefix' => '',
-            'presets' => config('images.presets'),
-            'driver' => 'imagick',
+            'presets' => config('images.presets')
         ]);
     }
 
