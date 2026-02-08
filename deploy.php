@@ -1,6 +1,8 @@
 <?php
 namespace Deployer;
 
+use Symfony\Component\Console\Input\InputOption;
+
 require 'recipe/laravel.php';
 
 // Project name
@@ -21,10 +23,57 @@ add('shared_dirs', [
 ]);
 
 // Writable dirs by web server
-add('writable_dirs', []);
+set('writable_mode', 'chmod');
+set('writable_chmod_mode', 775);
+set('writable_use_sudo', true);
+set('writable_recursive', true);
+set('http_user', 'www-data');
+set('http_group', 'www-data');
+
+set('writable_dirs', [
+    '{{release_or_current_path}}/storage'
+]);
 
 // Hosts
 import('hosts.yml');
+
+// Set binaries for deployment to docker containers
+function getDockerRunCommand($cmd) {
+    $composeFile = get('docker_path') . '/docker-compose.yml';
+    return sprintf(
+        'sudo /usr/bin/docker compose -f %s run --rm -u $(id -u):$(id -g) -w {{release_or_current_path}} deploy %s',
+        $composeFile,
+        $cmd
+    );
+}
+
+set('bin/composer', function () {
+    return getDockerRunCommand('composer');
+});
+
+set('bin/php', function () {
+    return getDockerRunCommand('php');
+});
+
+// Fix permissions
+task('deploy:fix_storage_permissions', function () {
+    run('sudo chgrp -R www-data {{deploy_path}}/shared/storage');
+    run('sudo chmod -R g+s {{deploy_path}}/shared/storage');
+});
+
+after('deploy:writable', 'deploy:fix_storage_permissions');
+
+// Fresh deployment
+option('fresh', null, InputOption::VALUE_NONE, 'Fresh deployment: pushes local .env to remote');
+
+task('deploy:check_fresh', function () {
+    if (input()->getOption('fresh')) {
+        writeln('<info>Fresh flag detected: Pushing .env file...</info>');
+        invoke('env:push');
+    }
+});
+
+after('deploy:shared', 'deploy:check_fresh');
 
 // Tasks
 task('files:pull', function () {
@@ -58,6 +107,14 @@ task('files:clean', function () {
 	}
 })->desc('Removes server-side files that do not exist locally.');
 
+// Manage env file
+task('env:pull', function () {
+    download('{{deploy_path}}/shared/.env', '.env.production', ['progress_bar' => false]);
+});
+
+task('env:push', function () {
+    upload('.env.production', '{{deploy_path}}/shared/.env', ['progress_bar' => false]);
+});
 
 task('database:pull', function () {
 	download(get('deploy_path') . '/shared/database/database.sqlite', 'database/database.sqlite');

@@ -13,6 +13,7 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 .env
+.env.production
 .phpunit.result.cache
 gulp.env.yaml
 
@@ -23,3 +24,5 @@ hosts.yml
 /*.sql.gz
 /*.sql
 .aider*
+
+provision/credentials
