@@ -18,11 +18,14 @@ yarn-error.log
 gulp.env.yaml
 
 # Deployment
+provision/credentials
+provision/inventory.yml
 hosts.yml
 
 # DB Exports
 /*.sql.gz
 /*.sql
+
+
 .aider*
 
-provision/credentials

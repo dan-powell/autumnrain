@@ -2,4 +2,4 @@
 collections:
   - name: git+ssh://git@github.com/dan-powell/autumnrain_ansible.git
     type: git
-    version: main
+    version: master
