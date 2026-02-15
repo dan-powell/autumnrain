@@ -37,6 +37,12 @@ set('writable_dirs', [
 // Hosts
 import('hosts.yml');
 
+// [Optional] if deploy fails automatically unlock.
+after('deploy:failed', 'deploy:unlock');
+
+// Disable database migrations (because we don't use a DB)
+task('artisan:migrate')->disable();
+
 // Set binaries for deployment to docker containers
 function getDockerRunCommand($cmd) {
     $composeFile = get('docker_path') . '/docker-compose.yml';
@@ -124,11 +130,12 @@ task('database:push', function () {
 	upload('database/database.sqlite', get('deploy_path') . '/shared/database/database.sqlite');
 })->desc('Copies local database to server.');
 
-// [Optional] if deploy fails automatically unlock.
-after('deploy:failed', 'deploy:unlock');
+// Task to restart the http container
+task('docker:restart:http', function () {
+    $composeFile = get('docker_path') . '/docker-compose.yml';
+    
+    // We use 'restart' on the service name defined in docker-compose
+    run("sudo /usr/bin/docker compose -f $composeFile restart http");
+});
+after('deploy:symlink', 'docker:restart:http');
 
-// Disable database migrations (because we don't use a DB)
-task('artisan:migrate')->disable();
-
-// Deploy files.
-before('deploy:symlink', 'files:push');

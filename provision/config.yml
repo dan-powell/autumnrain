@@ -1,0 +1,8 @@
+id: gameboard
+php_version: "8.2"
+php_extensions:
+  - intl
+  - bcmath
+  - gd
+  - exif
+  - calendar

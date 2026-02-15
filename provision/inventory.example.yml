@@ -1,0 +1,14 @@
+all:
+  hosts:
+    production:
+      ansible_host: # example.com
+      ansible_port: # 22
+      ansible_user: # user
+      domain: "autumnrain.co.uk"
+      # Add any additional domains here including www, comment out if no other domains required
+      other_domains: 
+        - "*.autumnrain.co.uk"
+        - "dan-powell.uk"
+        - "www.dan-powell.uk"
+        - "dan-powell.co.uk"
+        - "www.dan-powell.co.uk"
